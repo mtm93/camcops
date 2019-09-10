@@ -32,12 +32,7 @@ from sqlalchemy.sql.sqltypes import Integer
 
 from camcops_server.cc_modules.cc_constants import CssClass
 from camcops_server.cc_modules.cc_ctvinfo import CTV_INCOMPLETE, CtvInfo
-from camcops_server.cc_modules.cc_html import (
-    answer,
-    italic,
-    tr,
-    tr_qa,
-)
+from camcops_server.cc_modules.cc_html import answer, italic, tr, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,

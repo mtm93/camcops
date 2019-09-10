@@ -37,13 +37,8 @@ from camcops_server.cc_modules.cc_db import (
 )
 from camcops_server.cc_modules.cc_html import answer, tr_qa
 from camcops_server.cc_modules.cc_sqlalchemy import Base
-from camcops_server.cc_modules.cc_sqla_coltypes import (
-    CamcopsColumn,
-)
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasPatientMixin,
-)
+from camcops_server.cc_modules.cc_sqla_coltypes import CamcopsColumn
+from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 
 if TYPE_CHECKING:
     from camcops_server.cc_modules.cc_request import CamcopsRequest

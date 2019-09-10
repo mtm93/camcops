@@ -38,15 +38,12 @@ from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     PendulumDateTimeAsIsoTextColType,
+    ZERO_TO_FOUR_CHECKER,
     ZERO_TO_ONE_CHECKER,
     ZERO_TO_TWO_CHECKER,
-    ZERO_TO_FOUR_CHECKER
 )
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import (
-    get_from_dict,
-    Task,
-)
+from camcops_server.cc_modules.cc_task import get_from_dict, Task
 
 
 # =============================================================================

@@ -26,7 +26,7 @@ camcops_server/tasks/pcl.py
 
 """
 
-from abc import ABCMeta, ABC
+from abc import ABC, ABCMeta
 from typing import Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq

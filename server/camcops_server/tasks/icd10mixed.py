@@ -29,8 +29,8 @@ camcops_server/tasks/icd10mixed.py
 from typing import List, Optional
 
 from cardinal_pythonlib.datetimefunc import format_datetime
-from cardinal_pythonlib.typetests import is_false
 import cardinal_pythonlib.rnc_web as ws
+from cardinal_pythonlib.typetests import is_false
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import Boolean, Date, UnicodeText
 
@@ -40,10 +40,7 @@ from camcops_server.cc_modules.cc_constants import (
     ICD10_COPYRIGHT_DIV,
 )
 from camcops_server.cc_modules.cc_ctvinfo import CTV_INCOMPLETE, CtvInfo
-from camcops_server.cc_modules.cc_html import (
-    get_true_false_none,
-    tr_qa,
-)
+from camcops_server.cc_modules.cc_html import get_true_false_none, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     BIT_CHECKER,

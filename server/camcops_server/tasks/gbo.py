@@ -40,10 +40,7 @@ from camcops_server.cc_modules.cc_constants import CssClass, DateFormat
 from camcops_server.cc_modules.cc_html import tr_qa, answer
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasPatientMixin,
-)
+from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 from camcops_server.cc_modules.cc_trackerhelpers import TrackerInfo
 
 

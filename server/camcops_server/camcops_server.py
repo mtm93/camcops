@@ -29,8 +29,8 @@ camcops_server/camcops_server.py
 """
 
 from argparse import (
-    ArgumentParser,
     ArgumentDefaultsHelpFormatter,
+    ArgumentParser,
     RawDescriptionHelpFormatter,
 )
 import logging
@@ -40,9 +40,9 @@ import sys
 from typing import Dict, List, Optional, Type, TYPE_CHECKING
 
 from cardinal_pythonlib.argparse_func import (
-    ShowAllSubparserHelpAction,
     MapType,
     nonnegative_int,
+    ShowAllSubparserHelpAction,
 )
 from cardinal_pythonlib.debugging import pdb_run
 from cardinal_pythonlib.logs import (
@@ -60,8 +60,8 @@ from cardinal_pythonlib.wsgi.constants import WsgiEnvVar
 from cardinal_pythonlib.wsgi.reverse_proxied_mw import ReverseProxiedConfig
 
 from camcops_server.cc_modules.cc_baseconstants import (
-    ENVVAR_CONFIG_FILE,
     DOCUMENTATION_URL,
+    ENVVAR_CONFIG_FILE,
 )
 from camcops_server.cc_modules.cc_config import (
     CamcopsConfig,
@@ -77,7 +77,9 @@ from camcops_server.cc_modules.cc_constants import (
     DEFAULT_FLOWER_ADDRESS,
     DEFAULT_FLOWER_PORT,
 )
-from camcops_server.cc_modules.cc_pythonversion import assert_minimum_python_version  # noqa
+from camcops_server.cc_modules.cc_pythonversion import (
+    assert_minimum_python_version,
+)
 from camcops_server.cc_modules.cc_snomed import send_athena_icd_snomed_to_xml
 from camcops_server.cc_modules.cc_version import CAMCOPS_SERVER_VERSION
 

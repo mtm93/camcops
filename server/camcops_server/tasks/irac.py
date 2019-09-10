@@ -27,7 +27,6 @@ camcops_server/tasks/irac.py
 """
 
 import cardinal_pythonlib.rnc_web as ws
-
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import Integer, UnicodeText
 

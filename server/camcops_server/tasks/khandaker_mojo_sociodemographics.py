@@ -42,10 +42,7 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     ZERO_TO_SIX_CHECKER,
     ZERO_TO_TWO_CHECKER,
 )
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasPatientMixin,
-)
+from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 
 
 class KhandakerMojoSociodemographicsMetaclass(DeclarativeMeta):

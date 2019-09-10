@@ -29,8 +29,8 @@ camcops_server/tasks/icd10manic.py
 from typing import List, Optional
 
 from cardinal_pythonlib.datetimefunc import format_datetime
-from cardinal_pythonlib.typetests import is_false
 import cardinal_pythonlib.rnc_web as ws
+from cardinal_pythonlib.typetests import is_false
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import Boolean, Date, UnicodeText
 

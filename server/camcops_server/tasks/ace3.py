@@ -28,8 +28,8 @@ camcops_server/tasks/ace3.py
 
 from typing import Any, Dict, List, Optional, Tuple, Type, TYPE_CHECKING
 
-from cardinal_pythonlib.stringfunc import strseq
 import cardinal_pythonlib.rnc_web as ws
+from cardinal_pythonlib.stringfunc import strseq
 import numpy
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy.sql.schema import Column

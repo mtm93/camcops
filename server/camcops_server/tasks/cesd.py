@@ -37,11 +37,10 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy.sql.sqltypes import Boolean
 
 from camcops_server.cc_modules.cc_constants import CssClass
-from camcops_server.cc_modules.cc_ctvinfo import CtvInfo, CTV_INCOMPLETE
+from camcops_server.cc_modules.cc_ctvinfo import CTV_INCOMPLETE, CtvInfo
 from camcops_server.cc_modules.cc_db import add_multiple_columns
 from camcops_server.cc_modules.cc_html import get_yes_no, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
-
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (
     get_from_dict,

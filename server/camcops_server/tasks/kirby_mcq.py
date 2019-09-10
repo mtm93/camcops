@@ -46,16 +46,13 @@ from camcops_server.cc_modules.cc_db import (
     GenericTabletRecordMixin,
     TaskDescendant,
 )
-from camcops_server.cc_modules.cc_html import (
-    answer,
-    tr_qa,
-)
+from camcops_server.cc_modules.cc_html import answer, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
-from camcops_server.cc_modules.cc_sqlalchemy import Base
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     BoolColumn,
     CurrencyColType,
 )
+from camcops_server.cc_modules.cc_sqlalchemy import Base
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 

@@ -49,8 +49,8 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     BIT_CHECKER,
     CamcopsColumn,
     ZERO_TO_ONE_CHECKER,
-    ZERO_TO_TWO_CHECKER,
     ZERO_TO_THREE_CHECKER,
+    ZERO_TO_TWO_CHECKER,
 )
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (

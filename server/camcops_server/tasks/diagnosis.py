@@ -31,29 +31,27 @@ import logging
 from typing import Any, Dict, List, Optional, Type, TYPE_CHECKING
 
 from cardinal_pythonlib.classes import classproperty
-from cardinal_pythonlib.colander_utils import (
-    get_child_node,
-    OptionalIntNode,
-)
+from cardinal_pythonlib.colander_utils import get_child_node, OptionalIntNode
 from cardinal_pythonlib.datetimefunc import pendulum_date_to_datetime_date
 from cardinal_pythonlib.logs import BraceStyleAdapter
 import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.sqlalchemy.dump import get_literal_query
-from colander import (
-    Invalid,
-    SchemaNode,
-    SequenceSchema,
-    String,
-)
+from colander import Invalid, SchemaNode, SequenceSchema, String
 import hl7
 from pyramid.renderers import render_to_response
 from pyramid.response import Response
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.sql.expression import (
-    and_, exists, literal, not_, or_, select, union,
+    and_,
+    exists,
+    literal,
+    not_,
+    or_,
+    select,
+    union,
 )
-from sqlalchemy.sql.selectable import SelectBase
 from sqlalchemy.sql.schema import Column
+from sqlalchemy.sql.selectable import SelectBase
 from sqlalchemy.sql.sqltypes import Date, Integer, UnicodeText
 
 from camcops_server.cc_modules.cc_constants import CssClass
@@ -63,6 +61,7 @@ from camcops_server.cc_modules.cc_db import (
     GenericTabletRecordMixin,
     TaskDescendant,
 )
+from camcops_server.cc_modules.cc_exportrecipient import ExportRecipient
 from camcops_server.cc_modules.cc_forms import (
     LinkingIdNumSelector,
     or_join_description,
@@ -75,23 +74,22 @@ from camcops_server.cc_modules.cc_nlp import guess_name_components
 from camcops_server.cc_modules.cc_patient import Patient
 from camcops_server.cc_modules.cc_patientidnum import PatientIdNum
 from camcops_server.cc_modules.cc_pyramid import CamcopsPage, ViewParam
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasClinicianMixin,
-    TaskHasPatientMixin,
-)
-from camcops_server.cc_modules.cc_exportrecipient import ExportRecipient
-from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_report import Report
+from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_snomed import (
     SnomedConcept,
     SnomedExpression,
     SnomedFocusConcept,
 )
-from camcops_server.cc_modules.cc_sqlalchemy import Base, DeclarativeAndABCMeta
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     DiagnosticCodeColType,
+)
+from camcops_server.cc_modules.cc_sqlalchemy import Base, DeclarativeAndABCMeta
+from camcops_server.cc_modules.cc_task import (
+    Task,
+    TaskHasClinicianMixin,
+    TaskHasPatientMixin,
 )
 
 if TYPE_CHECKING:

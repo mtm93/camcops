@@ -29,28 +29,29 @@ camcops_server/tasks/asdas.py
 """
 
 import math
-from typing import Any, Dict, List, Optional, Type, Tuple
-
-from camcops_server.cc_modules.cc_constants import CssClass
-from camcops_server.cc_modules.cc_db import add_multiple_columns
-from camcops_server.cc_modules.cc_html import tr_qa, tr, answer
-from camcops_server.cc_modules.cc_request import CamcopsRequest
-from camcops_server.cc_modules.cc_sqla_coltypes import (
-    SummaryCategoryColType,
-)
-from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import TaskHasPatientMixin, \
-    TaskHasClinicianMixin, Task
-from camcops_server.cc_modules.cc_trackerhelpers import (
-    TrackerAxisTick,
-    TrackerInfo,
-    TrackerLabel,
-)
+from typing import Any, Dict, List, Optional, Tuple, Type
 
 import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Column, Float
 from sqlalchemy.ext.declarative import DeclarativeMeta
+
+from camcops_server.cc_modules.cc_constants import CssClass
+from camcops_server.cc_modules.cc_db import add_multiple_columns
+from camcops_server.cc_modules.cc_html import answer, tr, tr_qa
+from camcops_server.cc_modules.cc_request import CamcopsRequest
+from camcops_server.cc_modules.cc_sqla_coltypes import SummaryCategoryColType
+from camcops_server.cc_modules.cc_summaryelement import SummaryElement
+from camcops_server.cc_modules.cc_task import (
+    Task,
+    TaskHasClinicianMixin,
+    TaskHasPatientMixin,
+)
+from camcops_server.cc_modules.cc_trackerhelpers import (
+    TrackerAxisTick,
+    TrackerInfo,
+    TrackerLabel,
+)
 
 
 class AsdasMetaclass(DeclarativeMeta):

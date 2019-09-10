@@ -28,7 +28,7 @@ camcops_server/tasks/shaps.py
 
 """
 
-from typing import Any, Dict, List, Type, Tuple
+from typing import Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Integer
@@ -41,8 +41,8 @@ from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (
     get_from_dict,
-    TaskHasPatientMixin,
     Task,
+    TaskHasPatientMixin,
 )
 from camcops_server.cc_modules.cc_text import SS
 

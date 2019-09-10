@@ -26,8 +26,8 @@ camcops_server/tasks/cardinal_expdetthreshold.py
 
 """
 
-import math
 import logging
+import math
 from typing import List, Optional, Type
 
 from cardinal_pythonlib.maths_numpy import inv_logistic, logistic
@@ -46,10 +46,7 @@ from camcops_server.cc_modules.cc_db import (
     GenericTabletRecordMixin,
     TaskDescendant,
 )
-from camcops_server.cc_modules.cc_html import (
-    get_yes_no_none,
-    tr_qa,
-)
+from camcops_server.cc_modules.cc_html import get_yes_no_none, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,

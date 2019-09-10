@@ -28,17 +28,18 @@ camcops_server/camcops_windows_service.py
 
 """
 
-import os
 import logging
+import os
 import sys
 
 from cardinal_pythonlib.winservice import (
-    ProcessDetails,
     generic_service_main,
+    ProcessDetails,
     WindowsService,
 )
 
 from camcops_server.cc_modules.cc_baseconstants import ENVVAR_CONFIG_FILE
+
 
 log = logging.getLogger(__name__)
 

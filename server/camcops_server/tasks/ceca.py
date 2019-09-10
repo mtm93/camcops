@@ -46,13 +46,13 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     BIT_CHECKER,
     CamcopsColumn,
     MIN_ZERO_CHECKER,
-    ONE_TO_FOUR_CHECKER,
     ONE_TO_FIVE_CHECKER,
+    ONE_TO_FOUR_CHECKER,
     PermittedValueChecker,
-    ZERO_TO_TWO_CHECKER,
-    ZERO_TO_THREE_CHECKER,
+    ZERO_TO_FIVE_CHECKER,
     ZERO_TO_FOUR_CHECKER,
-    ZERO_TO_FIVE_CHECKER
+    ZERO_TO_THREE_CHECKER,
+    ZERO_TO_TWO_CHECKER,
 )
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (

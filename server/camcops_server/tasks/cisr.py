@@ -51,21 +51,18 @@ from camcops_server.cc_modules.cc_html import (
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
-    ZERO_TO_FOUR_CHECKER,
-    ONE_TO_TWO_CHECKER,
-    ONE_TO_THREE_CHECKER,
-    ONE_TO_FOUR_CHECKER,
-    ONE_TO_FIVE_CHECKER,
-    ONE_TO_SIX_CHECKER,
-    ONE_TO_SEVEN_CHECKER,
     ONE_TO_EIGHT_CHECKER,
+    ONE_TO_FIVE_CHECKER,
+    ONE_TO_FOUR_CHECKER,
     ONE_TO_NINE_CHECKER,
+    ONE_TO_SEVEN_CHECKER,
+    ONE_TO_SIX_CHECKER,
+    ONE_TO_THREE_CHECKER,
+    ONE_TO_TWO_CHECKER,
+    ZERO_TO_FOUR_CHECKER,
 )
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasPatientMixin,
-)
+from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 
@@ -4519,13 +4516,13 @@ class Cisr(TaskHasPatientMixin, Task):
                 ▶ Lewis G, Pelosi AJ, Aray R, Dunn G (1992).
                 Measuring psychiatric disorder in the community: a standardized
                 assessment for use by lay interviewers.
-                Psychological Medicine 22: 465-486. PubMed ID 
+                Psychological Medicine 22: 465-486. PubMed ID
                 <a href="https://www.ncbi.nlm.nih.gov/pubmed/1615114">1615114</a>.
 
                 ▶ Lewis G (1994).
                 Assessing psychiatric disorder with a human interviewer or a
                 computer.
-                J Epidemiol Community Health 48: 207-210. PubMed ID 
+                J Epidemiol Community Health 48: 207-210. PubMed ID
                 <a href="https://www.ncbi.nlm.nih.gov/pubmed/8189180">8189180</a>.
 
                 • Source/copyright: Glyn Lewis.

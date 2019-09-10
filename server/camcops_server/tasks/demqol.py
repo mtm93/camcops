@@ -28,8 +28,8 @@ camcops_server/tasks/demqol.py
 
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
 
-from cardinal_pythonlib.stringfunc import strseq
 import cardinal_pythonlib.rnc_web as ws
+from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy.sql.sqltypes import Float, Integer
 

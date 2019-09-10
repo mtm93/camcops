@@ -41,17 +41,17 @@ from camcops_server.cc_modules.cc_snomed import (
     SnomedExpression,
     SnomedLookup,
 )
-from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     PermittedValueChecker,
 )
+from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 from camcops_server.cc_modules.cc_trackerhelpers import (
     LabelAlignment,
     TrackerInfo,
     TrackerLabel,
-)  # noqa
+)
 
 
 # =============================================================================

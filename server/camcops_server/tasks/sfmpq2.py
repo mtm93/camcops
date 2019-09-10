@@ -27,22 +27,26 @@ camcops_server/tasks/sfmpq2.py
 **Short-Form McGill Pain Questionnaire (SF-MPQ2) task.**
 
 """
+from typing import List, Type, Tuple, Dict, Any
+
+import cardinal_pythonlib.rnc_web as ws
+from cardinal_pythonlib.stringfunc import strseq
+from sqlalchemy import Float, Integer
+from sqlalchemy.ext.declarative import DeclarativeMeta
+
 from camcops_server.cc_modules.cc_constants import CssClass
-from camcops_server.cc_modules.cc_html import tr_qa, tr, answer
+from camcops_server.cc_modules.cc_html import answer, tr, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     ZERO_TO_10_CHECKER,
 )
-
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import TaskHasPatientMixin, \
-    TaskHasClinicianMixin, Task
-import cardinal_pythonlib.rnc_web as ws
-from cardinal_pythonlib.stringfunc import strseq
-from sqlalchemy import Float, Integer
-from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+from camcops_server.cc_modules.cc_task import (
+    Task,
+    TaskHasClinicianMixin,
+    TaskHasPatientMixin,
+)
 
 
 class Sfmpq2Metaclass(DeclarativeMeta):

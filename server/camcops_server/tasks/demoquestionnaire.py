@@ -39,8 +39,8 @@ from camcops_server.cc_modules.cc_html import answer
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
-    PendulumDateTimeAsIsoTextColType,
     DiagnosticCodeColType,
+    PendulumDateTimeAsIsoTextColType,
 )
 from camcops_server.cc_modules.cc_task import Task
 

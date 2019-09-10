@@ -34,11 +34,7 @@ from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import UnicodeText
 
 from camcops_server.cc_modules.cc_constants import CssClass
-from camcops_server.cc_modules.cc_html import (
-    bold,
-    get_yes_no_none,
-    tr_span_col,
-)
+from camcops_server.cc_modules.cc_html import bold, get_yes_no_none, tr_span_col
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import BoolColumn
 from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin

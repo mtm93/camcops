@@ -27,20 +27,30 @@ camcops_server/tasks/chit.py
 **Cambridge-Chicago Compulsivity Trait Scale task.**
 
 """
-from camcops_server.cc_modules.cc_constants import CssClass
-from camcops_server.cc_modules.cc_db import add_multiple_columns
-from camcops_server.cc_modules.cc_html import tr_qa, get_yes_no_unknown, tr, \
-    answer
-from camcops_server.cc_modules.cc_request import CamcopsRequest
-from camcops_server.cc_modules.cc_sqla_coltypes import BoolColumn
-from camcops_server.cc_modules.cc_summaryelement import SummaryElement
-from camcops_server.cc_modules.cc_task import TaskHasPatientMixin, \
-    TaskHasClinicianMixin, Task, get_from_dict
-from camcops_server.cc_modules.cc_text import SS
+from typing import Any, Dict, List, Tuple, Type
+
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Integer
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+
+from camcops_server.cc_modules.cc_constants import CssClass
+from camcops_server.cc_modules.cc_db import add_multiple_columns
+from camcops_server.cc_modules.cc_html import (
+    answer,
+    get_yes_no_unknown,
+    tr,
+    tr_qa,
+)
+from camcops_server.cc_modules.cc_request import CamcopsRequest
+from camcops_server.cc_modules.cc_sqla_coltypes import BoolColumn
+from camcops_server.cc_modules.cc_summaryelement import SummaryElement
+from camcops_server.cc_modules.cc_task import (
+    Task,
+    TaskHasClinicianMixin,
+    TaskHasPatientMixin,
+    get_from_dict,
+)
+from camcops_server.cc_modules.cc_text import SS
 
 
 class ChitMetaclass(DeclarativeMeta):
