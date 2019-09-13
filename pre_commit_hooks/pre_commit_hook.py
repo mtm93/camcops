@@ -37,7 +37,6 @@ So if you have non-commited changes that break this you'll need to
 stash your changes before commiting.
 """
 
-import logging
 import os
 from subprocess import CalledProcessError, run
 import sys
@@ -51,8 +50,6 @@ PROJECT_ROOT = os.path.join(PRECOMMIT_DIR, "..")
 PYTHON_SOURCE_DIR = os.path.join(PROJECT_ROOT,
                                  "server", "camcops_server")
 CONFIG_FILE = os.path.join(PROJECT_ROOT, "setup.cfg")
-
-log = logging.getLogger(__name__)
 
 
 class PreCommitException(Exception):
@@ -93,15 +90,15 @@ def in_virtualenv():
 
 def main() -> None:
     if not in_virtualenv():
-        log.error("pre_commit_hook.py must be run inside virtualenv")
+        sys.stderr.write("Must be run inside virtualenv")
         sys.exit(EXIT_FAILURE)
 
     try:
         check_python_style()
         check_imports_sorted()
     except CalledProcessError as e:
-        log.error(str(e))
-        log.error("Pre-commit hook failed. Check errors above")
+        sys.stderr.write(str(e))
+        sys.stderr.write("Pre-commit hook failed. Check errors above")
         sys.exit(EXIT_FAILURE)
 
 
