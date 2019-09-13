@@ -45,26 +45,19 @@ from camcops_server.cc_modules.cc_db import (
     GenericTabletRecordMixin,
     TaskDescendant,
 )
-from camcops_server.cc_modules.cc_html import (
-    get_data_url,
-    get_embedded_img_tag,
-)
+from camcops_server.cc_modules.cc_html import get_data_url, get_embedded_img_tag
+
 from camcops_server.cc_modules.cc_simpleobjects import TaskExportOptions
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
-    MimeTypeColType,
-    TableNameColType,
-)
-from camcops_server.cc_modules.cc_sqla_coltypes import (
     LongBlob,
+    MimeTypeColType,
     RelationshipInfo,
+    TableNameColType,
 )
 from camcops_server.cc_modules.cc_sqlalchemy import Base
 from camcops_server.cc_modules.cc_unittest import DemoDatabaseTestCase
-from camcops_server.cc_modules.cc_xml import (
-    get_xml_blob_element,
-    XmlElement,
-)
+from camcops_server.cc_modules.cc_xml import get_xml_blob_element, XmlElement
 
 if TYPE_CHECKING:
     from camcops_server.cc_modules.cc_request import CamcopsRequest  # noqa: E501,F401

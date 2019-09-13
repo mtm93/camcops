@@ -27,7 +27,7 @@ camcops_server/tasks/sfmpq2.py
 **Short-Form McGill Pain Questionnaire (SF-MPQ2) task.**
 
 """
-from typing import List, Type, Tuple, Dict, Any
+from typing import Any, Dict, List, Tuple, Type
 
 import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.stringfunc import strseq

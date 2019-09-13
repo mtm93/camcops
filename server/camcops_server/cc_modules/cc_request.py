@@ -33,8 +33,16 @@ from contextlib import contextmanager
 import datetime
 import gettext
 import logging
-from typing import (Any, Dict, Generator, List, Optional, Tuple, TYPE_CHECKING,
-                    Union)
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    List,
+    Optional,
+    Tuple,
+    TYPE_CHECKING,
+    Union,
+)
 import urllib.parse
 
 from cardinal_pythonlib.datetimefunc import (
@@ -56,7 +64,8 @@ import lockfile
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib.font_manager import FontProperties
-from pendulum import Date, DateTime as Pendulum
+from pendulum import Date
+from pendulum import DateTime as Pendulum
 from pendulum.parsing.exceptions import ParserError
 from pyramid.config import Configurator
 from pyramid.decorator import reify
@@ -66,8 +75,8 @@ from pyramid.request import Request
 from pyramid.response import Response
 from pyramid.testing import DummyRequest
 from sqlalchemy.engine.base import Engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session as SqlASession
+from sqlalchemy.orm import sessionmaker
 from webob.multidict import MultiDict
 
 # Note: everything uder the sun imports this file, so keep the intra-package
@@ -93,10 +102,8 @@ from camcops_server.cc_modules.cc_idnumdef import (
     IdNumDefinition,
     validate_id_number,
 )
-from camcops_server.cc_modules.cc_language import (
-    DEFAULT_LOCALE,
-    GETTEXT_DOMAIN,
-)
+from camcops_server.cc_modules.cc_language import DEFAULT_LOCALE, GETTEXT_DOMAIN
+
 # noinspection PyUnresolvedReferences
 import camcops_server.cc_modules.cc_plot  # import side effects (configure matplotlib)  # noqa
 from camcops_server.cc_modules.cc_pyramid import (
@@ -120,7 +127,7 @@ from camcops_server.cc_modules.cc_string import (
     MISSING_LOCALE,
 )
 from camcops_server.cc_modules.cc_tabletsession import TabletSession
-from camcops_server.cc_modules.cc_text import SS, server_string
+from camcops_server.cc_modules.cc_text import server_string, SS
 from camcops_server.cc_modules.cc_user import User
 
 if TYPE_CHECKING:

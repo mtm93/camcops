@@ -46,8 +46,8 @@ from camcops_server.cc_modules.cc_string import AS
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (
     Task,
-    TaskHasPatientMixin,
     TaskHasClinicianMixin,
+    TaskHasPatientMixin,
 )
 from camcops_server.cc_modules.cc_trackerhelpers import TrackerInfo
 

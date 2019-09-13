@@ -33,8 +33,8 @@ If you're a developer and want to create a new database migration, see
 """
 
 import logging
-from typing import TYPE_CHECKING
 import os
+from typing import TYPE_CHECKING
 
 # from alembic import command
 from alembic.config import Config
@@ -43,8 +43,8 @@ from cardinal_pythonlib.logs import BraceStyleAdapter
 from cardinal_pythonlib.sqlalchemy.alembic_func import (
     # get_current_and_head_revision,
     downgrade_database,
-    upgrade_database,
     stamp_allowing_unusual_version_table,
+    upgrade_database,
 )
 
 from camcops_server.cc_modules.cc_baseconstants import (

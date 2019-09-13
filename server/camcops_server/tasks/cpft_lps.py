@@ -35,8 +35,8 @@ from cardinal_pythonlib.logs import BraceStyleAdapter
 import cardinal_pythonlib.rnc_web as ws
 import pyramid.httpexceptions as exc
 from sqlalchemy.sql.expression import and_, exists, select
-from sqlalchemy.sql.selectable import SelectBase
 from sqlalchemy.sql.schema import Column
+from sqlalchemy.sql.selectable import SelectBase
 from sqlalchemy.sql.sqltypes import Date, Integer, UnicodeText
 
 from camcops_server.cc_modules.cc_constants import (
@@ -61,7 +61,7 @@ from camcops_server.cc_modules.cc_nhs import (
     get_nhs_dd_ethnic_category_code,
     get_nhs_dd_person_marital_status,
     PV_NHS_ETHNIC_CATEGORY,
-    PV_NHS_MARITAL_STATUS
+    PV_NHS_MARITAL_STATUS,
 )
 from camcops_server.cc_modules.cc_patient import Patient
 from camcops_server.cc_modules.cc_patientidnum import PatientIdNum
@@ -72,8 +72,8 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     BoolColumn,
     CamcopsColumn,
     CharColType,
-    PendulumDateTimeAsIsoTextColType,
     DiagnosticCodeColType,
+    PendulumDateTimeAsIsoTextColType,
     PermittedValueChecker,
 )
 from camcops_server.cc_modules.cc_task import (

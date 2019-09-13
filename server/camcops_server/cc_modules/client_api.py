@@ -332,8 +332,8 @@ During any MySQL debugging, remember:
 # Imports
 # =============================================================================
 
-import logging
 import json
+import logging
 # from pprint import pformat
 import time
 from typing import Any, Dict, Iterable, List, Optional, Sequence, TYPE_CHECKING
@@ -358,9 +358,9 @@ from cardinal_pythonlib.sqlalchemy.core_query import (
     fetch_all_first_values,
 )
 from cardinal_pythonlib.text import escape_newlines, unescape_newlines
-from pyramid.view import view_config
 from pyramid.response import Response
 from pyramid.security import NO_PERMISSION_REQUIRED
+from pyramid.view import view_config
 from semantic_version import Version
 from sqlalchemy.engine.result import ResultProxy
 from sqlalchemy.exc import IntegrityError
@@ -402,8 +402,8 @@ from camcops_server.cc_modules.cc_client_api_helpers import (
 from camcops_server.cc_modules.cc_constants import (
     CLIENT_DATE_FIELD,
     ERA_NOW,
-    FP_ID_NUM,
     FP_ID_DESC,
+    FP_ID_NUM,
     FP_ID_SHORT_DESC,
     MOVE_OFF_TABLET_FIELD,
     NUMBER_OF_IDNUMS_DEFUNCT,  # allowed; for old tablet versions
@@ -437,8 +437,8 @@ from camcops_server.cc_modules.cc_device import Device
 from camcops_server.cc_modules.cc_dirtytables import DirtyTable
 from camcops_server.cc_modules.cc_group import Group
 from camcops_server.cc_modules.cc_patient import (
-    Patient,
     is_candidate_patient_valid,
+    Patient,
 )
 from camcops_server.cc_modules.cc_patientidnum import (
     fake_tablet_id_for_patientidnum,
@@ -453,7 +453,9 @@ from camcops_server.cc_modules.cc_specialnote import SpecialNote
 from camcops_server.cc_modules.cc_task import (
     all_task_tables_with_min_client_version,
 )
-from camcops_server.cc_modules.cc_taskindex import update_indexes_and_push_exports  # noqa
+from camcops_server.cc_modules.cc_taskindex import (
+    update_indexes_and_push_exports,
+)
 from camcops_server.cc_modules.cc_unittest import DemoDatabaseTestCase
 from camcops_server.cc_modules.cc_version import (
     CAMCOPS_SERVER_VERSION_STRING,
@@ -2669,7 +2671,7 @@ def process_table_for_onestep_upload(
         rows: List[Dict[str, Any]]) -> UploadTableChanges:
     """
     Performs all upload steps for a table.
-    
+
     Note that we arrive here in a specific and safe table order; search for
     :func:`camcops_server.cc_modules.cc_client_api_helpers.upload_commit_order_sorter`.
 

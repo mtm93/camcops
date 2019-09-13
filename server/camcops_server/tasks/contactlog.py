@@ -35,11 +35,11 @@ from sqlalchemy.sql.sqltypes import Integer, UnicodeText
 
 from camcops_server.cc_modules.cc_constants import CssClass, DateFormat
 from camcops_server.cc_modules.cc_ctvinfo import CTV_INCOMPLETE, CtvInfo
-from camcops_server.cc_modules.cc_html import italic, get_yes_no_none, tr, tr_qa
+from camcops_server.cc_modules.cc_html import get_yes_no_none, italic, tr, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import (
-    CamcopsColumn,
     BIT_CHECKER,
+    CamcopsColumn,
     PendulumDateTimeAsIsoTextColType,
 )
 from camcops_server.cc_modules.cc_task import (

@@ -47,15 +47,8 @@ from cardinal_pythonlib.email.sendmail import (
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from sqlalchemy.orm import reconstructor
 from sqlalchemy.sql.schema import Column
-from sqlalchemy.sql.sqltypes import (
-    Boolean,
-    BigInteger,
-    DateTime,
-    Integer,
-    Text,
-)
+from sqlalchemy.sql.sqltypes import BigInteger, Boolean, DateTime, Integer, Text
 
-from camcops_server.cc_modules.cc_sqlalchemy import Base
 from camcops_server.cc_modules.cc_sqla_coltypes import (
     CharsetColType,
     EmailAddressColType,
@@ -65,6 +58,7 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     Rfc2822DateColType,
     UserNameExternalColType,
 )
+from camcops_server.cc_modules.cc_sqlalchemy import Base
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 

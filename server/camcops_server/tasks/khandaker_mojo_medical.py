@@ -40,10 +40,7 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     ZERO_TO_TWO_CHECKER,
 )
-from camcops_server.cc_modules.cc_task import (
-    Task,
-    TaskHasPatientMixin,
-)
+from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin
 
 
 class KhandakerMojoMedicalMetaclass(DeclarativeMeta):

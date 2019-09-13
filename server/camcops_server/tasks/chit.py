@@ -45,10 +45,10 @@ from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_sqla_coltypes import BoolColumn
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (
+    get_from_dict,
     Task,
     TaskHasClinicianMixin,
     TaskHasPatientMixin,
-    get_from_dict,
 )
 from camcops_server.cc_modules.cc_text import SS
 

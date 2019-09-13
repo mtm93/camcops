@@ -44,9 +44,9 @@ from cardinal_pythonlib.convert import (
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from cardinal_pythonlib.sql.literals import (
     gen_items_from_sql_csv,
-    SQUOTE,
     sql_dequote_string,
     sql_quote_string,
+    SQUOTE,
 )
 from cardinal_pythonlib.text import escape_newlines, unescape_newlines
 from markupsafe import escape, Markup
@@ -196,13 +196,13 @@ def tsv_from_query(rows: Iterable[Iterable[Any]],
         import io
         import csv
         from typing import List
-        
+
         def test(row: List[str], dialect: str = "excel-tab") -> str:
             f = io.StringIO()
             writer = csv.writer(f, dialect=dialect)
             writer.writerow(row)
             return f.getvalue()
-        
+
         test(["hello", "world"])
         test(["hello\ttab", "world"])  # actual tab within double quotes
         test(["hello\nnewline", "world"])  # actual newline within double quotes

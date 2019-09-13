@@ -37,10 +37,10 @@ include:
 .. code-block:: none
 
     # Files with "Amoxicillin" in include two snapshots and two full files:
-    
+
     SnomedCT_UKClinicalRF2_PRODUCTION_20181031T000001Z/Full/Terminology/sct2_Description_Full-en-GB_GB1000000_20181031.txt
     # ... 234,755 lines
-    
+
     SnomedCT_InternationalRF2_PRODUCTION_20180731T120000Z/Full/Terminology/sct2_Description_Full-en_INT_20180731.txt
     # ... 2,513,953 lines; this is the main file.
 
@@ -62,25 +62,25 @@ Test basic expressions:
     from camcops_server.tasks.phq9 import Phq9
     main_only_quicksetup_rootlogger(level=logging.DEBUG)
     req = get_command_line_request()
-    
+
     # ---------------------------------------------------------------------
     # From the SNOMED-CT examples (http://snomed.org/scg), with some values
     # fixed from the term browser:
     # ---------------------------------------------------------------------
-    
+
     diabetes = SnomedConcept(73211009, "Diabetes mellitus (disorder)")
     diabetes_expr = SnomedExpression(diabetes)
     print(diabetes_expr.longform)
     print(diabetes_expr.shortform)
-    
+
     pain = SnomedConcept(22253000, "Pain (finding)")
     finding_site = SnomedConcept(36369800, "Finding site")
     foot = SnomedConcept(56459004, "Foot")
-    
+
     pain_in_foot = SnomedExpression(pain, {finding_site: foot})
     print(pain_in_foot.longform)
     print(pain_in_foot.shortform)
-    
+
     amoxicillin_medicine = SnomedConcept(27658006, "Product containing amoxicillin (medicinal product)")
     amoxicillin_substance = SnomedConcept(372687004, "Amoxicillin (substance)")
     has_dose_form = SnomedConcept(411116001, "Has manufactured dose form (attribute)")
@@ -90,7 +90,7 @@ Test basic expressions:
     mass = SnomedConcept(118538004, "Mass, a measure of quantity of matter (property) (qualifier value)")
     unit_of_measure = SnomedConcept(767524001, "Unit of measure (qualifier value)")
     milligrams = SnomedConcept(258684004, "milligram (qualifier value)")
-    
+
     amoxicillin_500mg_capsule = SnomedExpression(
         amoxicillin_medicine, [
             SnomedAttributeSet({has_dose_form: capsule}),
@@ -107,18 +107,18 @@ Test basic expressions:
     )
     print(amoxicillin_500mg_capsule.longform)
     print(amoxicillin_500mg_capsule.shortform)
-    
+
     # ---------------------------------------------------------------------
     # Read the XML, etc.
     # ---------------------------------------------------------------------
-    
+
     print(VALID_SNOMED_LOOKUPS)
     concepts = get_all_snomed_concepts(req.config.snomed_xml_filename)
-    
+
     # ---------------------------------------------------------------------
     # Test a task, and loading SNOMED data from XML via the CamCOPS config
     # ---------------------------------------------------------------------
-    
+
     phq9 = Phq9()
     print("\n".join(str(x) for x in phq9.get_snomed_codes(req)))
     phq9.q1 = 2
@@ -161,8 +161,7 @@ ac = get_athena_concepts(config.athena_concept_tsv_filename, vocabulary_ids=[Ath
 from collections import OrderedDict
 import csv
 import logging
-from typing import (Collection, Dict, Iterable, List, Optional, Set, Tuple,
-                    Union)
+from typing import Collection, Dict, Iterable, List, Optional, Set, Tuple, Union
 import xml.etree.cElementTree as ElementTree
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
@@ -593,11 +592,11 @@ def double_quoted(s: str) -> str:
     .. code-block:: python
 
         from camcops_server.cc_modules.cc_snomed import double_quoted
-        
+
         def test(s):
             print(f"double_quoted({s!r}) -> {double_quoted(s)}")
-        
-        
+
+
         test("ab'cd")
         test("ab'c\"d")
         test('ab"cd')
@@ -1047,23 +1046,23 @@ class SnomedLookup(object):
     within CamCOPS, we use string constants represented in this class. If the
     local institution is allowed (e.g. in the UK, as below), then it can
     install additional data.
-    
+
     - UK license:
       https://isd.digital.nhs.uk/trud3/user/guest/group/0/pack/26/subpack/101/licences
-    
+
     - To find codes: https://termbrowser.nhs.uk/
-    
+
     Abbreviations:
-    
+
     - "Finding" is not abbreviated
     - "Obs" or "observable" is short for "observable entity"
     - "Procedure" is not abbreviated
     - "Scale" is short for "assessment scale"
     - "Situation" is not abbreviated
-    
+
     Variable names are designed for clear code. Value strings are designed for
     clear XML that matches SNOMED-CT, in the format TASK_CONCEPTTYPE_NAME.
-    
+
     """  # noqa
     # https://snomedbrowser.com/Codes/Details/XXX  # noqa
 

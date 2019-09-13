@@ -73,8 +73,8 @@ import configparser
 import contextlib
 import datetime
 import multiprocessing
-import os
 import logging
+import os
 import re
 from typing import Dict, Generator, List, Optional, Union
 
@@ -82,7 +82,7 @@ from cardinal_pythonlib.configfiles import (
     get_config_parameter,
     get_config_parameter_boolean,
     get_config_parameter_loglevel,
-    get_config_parameter_multiline
+    get_config_parameter_multiline,
 )
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from cardinal_pythonlib.randomness import create_base64encoded_randomness
@@ -94,7 +94,9 @@ from cardinal_pythonlib.sqlalchemy.engine_func import (
     is_sqlserver,
     is_sqlserver_2008_or_later,
 )
-from cardinal_pythonlib.sqlalchemy.logs import pre_disable_sqlalchemy_extra_echo_log  # noqa
+from cardinal_pythonlib.sqlalchemy.logs import (
+    pre_disable_sqlalchemy_extra_echo_log,
+)
 from cardinal_pythonlib.sqlalchemy.schema import get_table_names
 from cardinal_pythonlib.sqlalchemy.session import (
     get_safe_url_from_engine,
@@ -105,8 +107,8 @@ import celery.schedules
 from pendulum import DateTime as Pendulum
 from sqlalchemy.engine import create_engine
 from sqlalchemy.engine.base import Engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session as SqlASession
+from sqlalchemy.orm import sessionmaker
 
 from camcops_server.cc_modules.cc_baseconstants import (
     ALEMBIC_BASE_DIR,
@@ -138,14 +140,12 @@ from camcops_server.cc_modules.cc_constants import (
     DEFAULT_TIMEOUT_MINUTES,
     URL_PATH_ROOT,
 )
+from camcops_server.cc_modules.cc_exception import raise_runtime_error
 from camcops_server.cc_modules.cc_exportrecipientinfo import (
     DEFAULT_PATIENT_SPEC_IF_ANONYMOUS,
     ExportRecipientInfo,
 )
-from camcops_server.cc_modules.cc_exception import raise_runtime_error
-from camcops_server.cc_modules.cc_filename import (
-    PatientSpecElementForFilename,
-)
+from camcops_server.cc_modules.cc_filename import PatientSpecElementForFilename
 from camcops_server.cc_modules.cc_language import (
     DEFAULT_LOCALE,
     POSSIBLE_LOCALES,

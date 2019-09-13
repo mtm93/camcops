@@ -36,37 +36,37 @@ It is loaded directly by Alembic, via a pseudo-"main" environment.
 
 import logging
 import os
-from typing import Iterable, Generator, List, Tuple, Union
+from typing import Generator, Iterable, List, Tuple, Union
 
 from alembic import context
 from alembic.config import Config
-from alembic.runtime.migration import MigrationContext
 from alembic.operations.ops import (
     AlterColumnOp,
     DowngradeOps,
-    ModifyTableOps,
     MigrationScript,
+    ModifyTableOps,
     OpContainer,
     UpgradeOps,
 )
-from cardinal_pythonlib.sqlalchemy.alembic_func import get_current_revision
+from alembic.runtime.migration import MigrationContext
 from cardinal_pythonlib.logs import (
     BraceStyleAdapter,
     main_only_quicksetup_rootlogger,
 )
+from cardinal_pythonlib.sqlalchemy.alembic_func import get_current_revision
 from cardinal_pythonlib.sqlalchemy.session import get_safe_url_from_url
 from sqlalchemy import engine_from_config, pool
 from sqlalchemy.dialects.mysql.types import LONGTEXT, TINYINT
+from sqlalchemy.sql.schema import MetaData
 from sqlalchemy.sql.sqltypes import Boolean, UnicodeText
 from sqlalchemy.sql.type_api import TypeEngine
-from sqlalchemy.sql.schema import MetaData
 
 # No relative imports from within the Alembic zone.
+# noinspection PyUnresolvedReferences
+import camcops_server.cc_modules.cc_all_models  # import side effects (ensure all models registered)  # noqa
 from camcops_server.cc_modules.cc_baseconstants import ALEMBIC_VERSION_TABLE
 from camcops_server.cc_modules.cc_config import get_default_config_from_os_env
 from camcops_server.cc_modules.cc_sqlalchemy import Base
-# noinspection PyUnresolvedReferences
-import camcops_server.cc_modules.cc_all_models  # import side effects (ensure all models registered)  # noqa
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 

@@ -34,10 +34,10 @@ from typing import List
 
 from cardinal_pythonlib.datetimefunc import format_datetime
 from sqlalchemy import Column
-from sqlalchemy.sql.sqltypes import Boolean, Integer, Date, UnicodeText
+from sqlalchemy.sql.sqltypes import Boolean, Date, Integer, UnicodeText
 
 from camcops_server.cc_modules.cc_constants import CssClass, DateFormat
-from camcops_server.cc_modules.cc_html import tr_qa, answer
+from camcops_server.cc_modules.cc_html import answer, tr_qa
 from camcops_server.cc_modules.cc_request import CamcopsRequest
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import Task, TaskHasPatientMixin

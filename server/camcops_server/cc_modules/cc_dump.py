@@ -30,8 +30,17 @@ camcops_server/cc_modules/cc_dump.py
 
 import logging
 from typing import (
-    Any, Dict, Generator, Iterable, List, Optional, Set, Tuple, Type,
-    TYPE_CHECKING, Union,
+    Any,
+    Dict,
+    Generator,
+    Iterable,
+    List,
+    Optional,
+    Set,
+    Tuple,
+    Type,
+    TYPE_CHECKING,
+    Union,
 )
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
@@ -40,8 +49,8 @@ from cardinal_pythonlib.sqlalchemy.orm_inspect import (
     gen_orm_classes_from_base,
     walk_orm_tree,
 )
-from sqlalchemy.exc import CompileError
 from sqlalchemy.engine.base import Engine
+from sqlalchemy.exc import CompileError
 from sqlalchemy.orm import Session as SqlASession
 from sqlalchemy.sql.schema import Column, MetaData, Table
 
@@ -381,7 +390,7 @@ class DumpController(object):
         """
         Add an additional summary table to the dump, if it's not there already.
         Return the table (from the destination database).
-        
+
         Args:
             est:
                 a
@@ -411,7 +420,7 @@ class DumpController(object):
           command.
 
         - We may translate the table en route.
-        
+
         Args:
             src_obj:
                 An SQLAlchemy ORM object. It will *not* be a
@@ -517,7 +526,7 @@ class DumpController(object):
         """
         Add an additional summary table to the dump, if it's not there already.
         Return the table (from the destination database).
-        
+
         Args:
             est:
                 a

@@ -39,8 +39,9 @@ Creation date: ${create_date}
 # =============================================================================
 
 from alembic import op
-import sqlalchemy as sa
 import cardinal_pythonlib.sqlalchemy.list_types
+import sqlalchemy as sa
+
 import camcops_server.cc_modules.cc_sqla_coltypes
 
 

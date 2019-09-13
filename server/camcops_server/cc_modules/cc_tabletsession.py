@@ -47,9 +47,9 @@ from camcops_server.cc_modules.cc_device import Device
 from camcops_server.cc_modules.cc_pyramid import RequestMethod
 from camcops_server.cc_modules.cc_version import (
     FIRST_CPP_TABLET_VER,
+    FIRST_TABLET_VER_WITH_EXPLICIT_PKNAME_IN_UPLOAD_TABLE,
     FIRST_TABLET_VER_WITH_SEPARATE_IDNUM_TABLE,
     FIRST_TABLET_VER_WITHOUT_IDDESC_IN_PT_TABLE,
-    FIRST_TABLET_VER_WITH_EXPLICIT_PKNAME_IN_UPLOAD_TABLE,
     make_version,
     MINIMUM_TABLET_VERSION,
 )

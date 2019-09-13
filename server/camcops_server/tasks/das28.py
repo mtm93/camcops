@@ -29,14 +29,18 @@ camcops_server/tasks/das28.py
 """
 
 import math
-from typing import Any, Dict, List, Optional, Type, Tuple
+from typing import Any, Dict, List, Optional, Tuple, Type
+
+import cardinal_pythonlib.rnc_web as ws
+from sqlalchemy import Column, Float, Integer
+from sqlalchemy.ext.declarative import DeclarativeMeta
 
 from camcops_server.cc_modules.cc_constants import CssClass
 from camcops_server.cc_modules.cc_html import (
     answer,
     table_row,
-    th,
     td,
+    th,
     tr,
     tr_qa,
 )
@@ -50,18 +54,14 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
 from camcops_server.cc_modules.cc_summaryelement import SummaryElement
 from camcops_server.cc_modules.cc_task import (
     Task,
-    TaskHasPatientMixin,
     TaskHasClinicianMixin,
+    TaskHasPatientMixin,
 )
 from camcops_server.cc_modules.cc_trackerhelpers import (
     TrackerAxisTick,
     TrackerInfo,
     TrackerLabel,
 )
-
-import cardinal_pythonlib.rnc_web as ws
-from sqlalchemy import Column, Float, Integer
-from sqlalchemy.ext.declarative import DeclarativeMeta
 
 
 class Das28Metaclass(DeclarativeMeta):

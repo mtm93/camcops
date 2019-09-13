@@ -43,14 +43,14 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     CamcopsColumn,
     gen_camcops_columns,
     get_camcops_column_attr_names,
-    ZERO_TO_TWO_CHECKER,
-    ZERO_TO_FOUR_CHECKER,
     ZERO_TO_FIVE_CHECKER,
+    ZERO_TO_FOUR_CHECKER,
+    ZERO_TO_TWO_CHECKER,
 )
 from camcops_server.cc_modules.cc_task import (
     Task,
-    TaskHasPatientMixin,
     TaskHasClinicianMixin,
+    TaskHasPatientMixin,
 )
 
 

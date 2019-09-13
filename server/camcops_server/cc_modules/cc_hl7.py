@@ -69,7 +69,8 @@ from typing import List, Optional, Tuple, TYPE_CHECKING, Union
 from cardinal_pythonlib.datetimefunc import format_datetime
 from cardinal_pythonlib.logs import BraceStyleAdapter
 import hl7
-from pendulum import Date, DateTime as Pendulum
+from pendulum import Date
+from pendulum import DateTime as Pendulum
 
 from camcops_server.cc_modules.cc_constants import DateFormat
 from camcops_server.cc_modules.cc_filename import FileType

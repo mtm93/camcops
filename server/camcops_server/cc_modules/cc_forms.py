@@ -97,8 +97,16 @@ Form titles need to be dynamically written via
 import logging
 import os
 from pprint import pformat
-from typing import (Any, Callable, Dict, List, Optional,
-                    Tuple, Type, TYPE_CHECKING)
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    List,
+    Optional,
+    Tuple,
+    Type,
+    TYPE_CHECKING,
+)
 import unittest
 
 from cardinal_pythonlib.colander_utils import (
@@ -169,15 +177,15 @@ from camcops_server.cc_modules.cc_baseconstants import TEMPLATE_DIR
 from camcops_server.cc_modules.cc_constants import (
     DEFAULT_ROWS_PER_PAGE,
     MINIMUM_PASSWORD_LENGTH,
-    SEX_OTHER_UNSPECIFIED,
     SEX_FEMALE,
     SEX_MALE,
+    SEX_OTHER_UNSPECIFIED,
     USER_NAME_FOR_SYSTEM,
 )
 from camcops_server.cc_modules.cc_group import Group
 from camcops_server.cc_modules.cc_idnumdef import (
-    IdNumDefinition,
     ID_NUM_VALIDATION_METHOD_CHOICES,
+    IdNumDefinition,
 )
 from camcops_server.cc_modules.cc_language import (
     DEFAULT_LOCALE,

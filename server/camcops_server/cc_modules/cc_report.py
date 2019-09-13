@@ -29,8 +29,16 @@ camcops_server/cc_modules/cc_report.py
 """
 
 import logging
-from typing import (Any, Dict, List, Optional, Sequence, Type, TYPE_CHECKING,
-                    Union)
+from typing import (
+    Any,
+    Dict,
+    List,
+    Optional,
+    Sequence,
+    Type,
+    TYPE_CHECKING,
+    Union,
+)
 
 from cardinal_pythonlib.classes import all_subclasses, classproperty
 from cardinal_pythonlib.datetimefunc import format_datetime
@@ -45,11 +53,11 @@ from sqlalchemy.orm.query import Query
 from sqlalchemy.sql.selectable import SelectBase
 
 # import as LITTLE AS POSSIBLE; this is used by lots of modules
-from camcops_server.cc_modules.cc_convert import tsv_from_query
 from camcops_server.cc_modules.cc_constants import (
     DateFormat,
     DEFAULT_ROWS_PER_PAGE,
 )
+from camcops_server.cc_modules.cc_convert import tsv_from_query
 from camcops_server.cc_modules.cc_pyramid import (
     CamcopsPage,
     PageUrl,

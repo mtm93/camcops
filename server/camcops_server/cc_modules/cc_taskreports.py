@@ -32,19 +32,21 @@ from collections import Counter
 from typing import Any, List, Sequence, Type, TYPE_CHECKING
 
 from cardinal_pythonlib.classes import classproperty
-from cardinal_pythonlib.sqlalchemy.orm_query import get_rows_fieldnames_from_query  # noqa
+from cardinal_pythonlib.sqlalchemy.orm_query import (
+    get_rows_fieldnames_from_query,
+)
 from cardinal_pythonlib.sqlalchemy.sqlfunc import extract_month, extract_year
 from sqlalchemy.sql.expression import and_, desc, func, literal, select
 
-from camcops_server.cc_modules.cc_sqla_coltypes import (
-    isotzdatetime_to_utcdatetime,
-)
 from camcops_server.cc_modules.cc_forms import (
     ReportParamSchema,
     ViaIndexSelector,
 )
 from camcops_server.cc_modules.cc_pyramid import ViewParam
 from camcops_server.cc_modules.cc_report import Report, PlainReportType
+from camcops_server.cc_modules.cc_sqla_coltypes import (
+    isotzdatetime_to_utcdatetime,
+)
 from camcops_server.cc_modules.cc_task import Task
 from camcops_server.cc_modules.cc_taskindex import TaskIndexEntry
 from camcops_server.cc_modules.cc_user import User
