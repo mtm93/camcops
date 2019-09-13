@@ -16,8 +16,9 @@ core
 # Python
 __pycache__/
 
+.mypy_cache/
+
 # Other
 distributables/
 server/camcops_server.egg-info
 working/*
-
