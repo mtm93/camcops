@@ -91,6 +91,14 @@ def check_python_style() -> None:
     ])
 
 
+def check_python_typing() -> None:
+    run_with_check([
+        "mypy",
+        f"--config-file={CONFIG_FILE}",
+        PYTHON_SOURCE_DIR,
+    ])
+
+
 # https://stackoverflow.com/questions/1871549/determine-if-python-is-running-inside-virtualenv
 def in_virtualenv() -> bool:
     return (
@@ -121,11 +129,15 @@ def main() -> None:
         log.error("flake8 version must be 3.7.8 or higher for type hint support")  # noqa
         sys.exit(EXIT_FAILURE)
 
-    log.info("Checking Python style...")
-
     try:
+        log.info("Checking Python style...")
         check_python_style()
         log.info("... very stylish.")
+
+        log.info("Type checking...")
+        check_python_typing()
+        log.info("... typing OK.")
+
     except CalledProcessError as e:
         log.error(str(e))
         log.error("Pre-commit hook failed. Check errors above")
