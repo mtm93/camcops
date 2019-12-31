@@ -296,7 +296,7 @@ class RequestAwareMixin(object):
     # noinspection PyUnresolvedReferences
     @property
     def request(self) -> "CamcopsRequest":
-        return self.bindings[Binding.REQUEST]  # type: CamcopsRequest
+        return self.bindings[Binding.REQUEST]
 
     # noinspection PyUnresolvedReferences,PyPropertyDefinition
     @property
