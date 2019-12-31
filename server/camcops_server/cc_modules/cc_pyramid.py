@@ -598,7 +598,7 @@ class UrlParam(object):
 
     """  # noqa
     def __init__(self, name: str,
-                 paramtype: UrlParamType == UrlParamType.PLAIN_STRING) -> None:
+                 paramtype: UrlParamType = UrlParamType.PLAIN_STRING) -> None:
         """
         Args:
             name: the name of the parameter
