@@ -1237,7 +1237,7 @@ class CamcopsPage(Page):
         if regex_res:
             radius = regex_res.group(1)
         else:
-            radius = 2
+            radius = "2"
         radius = int(radius)
         self.radius = radius
 
