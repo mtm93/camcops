@@ -62,6 +62,7 @@ import logging
 import os
 import shutil
 import tempfile
+from typing import Optional
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
 
@@ -106,7 +107,7 @@ os.environ[ENVVAR_MPLCONFIGDIR] = _mpl_config_dir
 #    You can't assign None to an os.environ member; see
 #    http://stackoverflow.com/questions/3575165; do this:
 if ENVVAR_HOME in os.environ:
-    _old_home = os.environ[ENVVAR_HOME]
+    _old_home = os.environ[ENVVAR_HOME]  # type: Optional[str]
     del os.environ[ENVVAR_HOME]
 else:
     _old_home = None
