@@ -29,7 +29,7 @@ camcops_server/cc_modules/cc_membership.py
 """
 
 import logging
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from sqlalchemy.orm import relationship, Session as SqlASession
@@ -37,6 +37,10 @@ from sqlalchemy.sql.schema import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Boolean, Integer
 
 from camcops_server.cc_modules.cc_sqlalchemy import Base
+
+if TYPE_CHECKING:
+    from camcops_server.cc_modules.cc_group import Group  # noqa: F401
+    from camcops_server.cc_modules.cc_user import User  # noqa: F401
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 
