@@ -252,11 +252,15 @@ class ExportRecipientInfo(object):
     def __str__(self) -> str:
         return repr(self.recipient_name)
 
-    def __eq__(self, other: "ExportRecipientInfo") -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Does this object equal another -- meaning "sufficiently equal that we
         can use the same one, rather than making a new database copy"?
         """
+
+        if not isinstance(other, ExportRecipientInfo):
+            return NotImplemented
+
         for attrname in self.get_attrnames():
             if attrname not in self.IGNORE_FOR_EQ_ATTRNAMES:
                 selfattr = getattr(self, attrname)

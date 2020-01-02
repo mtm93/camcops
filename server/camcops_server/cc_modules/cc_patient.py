@@ -346,7 +346,7 @@ class Patient(GenericTabletRecordMixin, Base):
     # Equality
     # -------------------------------------------------------------------------
 
-    def __eq__(self, other: "Patient") -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Is this patient the same as another?
 
@@ -368,6 +368,8 @@ class Patient(GenericTabletRecordMixin, Base):
         equal).
 
         """
+        if not isinstance(other, Patient):
+            return NotImplemented
         # Same object?
         # log.warning("self={}, other={}", self, other)
         if self is other:

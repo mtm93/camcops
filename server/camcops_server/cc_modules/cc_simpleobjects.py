@@ -77,9 +77,9 @@ class IdNumReference(object):
             self.idnum_value is not None and self.idnum_value > 0
         )
 
-    def __eq__(self, other: "IdNumReference") -> bool:
+    def __eq__(self, other: object) -> bool:
         if not isinstance(other, IdNumReference):
-            return False
+            return NotImplemented
         return (
             self.which_idnum == other.which_idnum and
             self.idnum_value == other.idnum_value
