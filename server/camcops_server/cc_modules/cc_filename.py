@@ -30,7 +30,7 @@ camcops_server/cc_modules/cc_filename.py
 
 import logging
 import os
-from typing import List, TYPE_CHECKING
+from typing import List, Optional, TYPE_CHECKING
 
 from cardinal_pythonlib.datetimefunc import (
     format_datetime,
@@ -158,7 +158,7 @@ def get_export_filename(req: "CamcopsRequest",
                         forename: str = None,
                         dob: Date = None,
                         sex: str = None,
-                        idnum_objects: List['PatientIdNum'] = None,
+                        idnum_objects: Optional[List['PatientIdNum']] = None,
                         creation_datetime: Pendulum = None,
                         basetable: str = None,
                         serverpk: int = None,
@@ -195,7 +195,7 @@ def get_export_filename(req: "CamcopsRequest",
         the generated filename
 
     """
-    idnum_objects = idnum_objects or []  # type: List['PatientIdNum']
+    idnum_objects = idnum_objects or []
     pse = PatientSpecElementForFilename
     fse = FilenameSpecElement
     d = {
