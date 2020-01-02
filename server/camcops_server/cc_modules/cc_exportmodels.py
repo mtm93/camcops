@@ -306,7 +306,7 @@ class ExportedTask(Base):
         Called when SQLAlchemy recreates an object; see
         https://docs.sqlalchemy.org/en/latest/orm/constructors.html.
         """
-        self._task = None  # type: Optional[Task]
+        self._task = None
 
     @property
     def task(self) -> "Task":
