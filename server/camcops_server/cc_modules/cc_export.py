@@ -546,7 +546,7 @@ class TaskCollectionExporter(object):
                 a :class:`camcops_server.cc_modules.cc_request.CamcopsRequest`
             collection:
                 a :class:`camcops_server.cc_modules.cc_taskcollection.TaskCollection`
-            options: 
+            options:
                 :class:`DownloadOptions` governing the download
         """  # noqa
         self.req = req
@@ -1075,11 +1075,13 @@ class UserDownloadFile(object):
             self.fullpath = os.path.join(directory, filename)
         else:
             self.fullpath = filename
+
+        self.statinfo: Optional[os.stat_result]
         try:
             self.statinfo = os.stat(self.fullpath)
             self.exists = True
         except FileNotFoundError:
-            self.statinfo = None  # type: Optional[os.stat_result]
+            self.statinfo = None
             self.exists = False
 
     # -------------------------------------------------------------------------
@@ -1092,7 +1094,10 @@ class UserDownloadFile(object):
         Size of the file, in bytes. Returns ``None`` if the file does not
         exist.
         """
-        return self.statinfo.st_size if self.exists else None
+        if self.exists:
+            return self.statinfo.st_size  # type: ignore
+
+        return None
 
     @property
     def size_str(self) -> str:
@@ -1112,15 +1117,17 @@ class UserDownloadFile(object):
     def when_last_modified(self) -> Optional[Pendulum]:
         """
         Returns the file's modification time, or ``None`` if it doesn't exist.
-        
+
         (Creation time is harder! See
         https://stackoverflow.com/questions/237079/how-to-get-file-creation-modification-date-times-in-python.)
         """  # noqa
         if not self.exists:
             return None
         # noinspection PyTypeChecker
-        creation = Pendulum.fromtimestamp(self.statinfo.st_mtime,
-                                          tz=get_tz_utc())  # type: Pendulum
+        creation = Pendulum.fromtimestamp(
+            self.statinfo.st_mtime,  # type: ignore
+            tz=get_tz_utc()
+        )  # type: Pendulum
         # ... gives the correct time in the UTC timezone
         # ... note that utcfromtimestamp() gives a time without a timezone,
         #     which is unhelpful!
