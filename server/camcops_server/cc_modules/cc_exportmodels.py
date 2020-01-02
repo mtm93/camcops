@@ -33,7 +33,7 @@ import os
 import socket
 import subprocess
 import sys
-from typing import Generator, List, Optional, Tuple, TYPE_CHECKING
+from typing import Generator, List, Optional, Tuple, TYPE_CHECKING, Union
 
 from cardinal_pythonlib.datetimefunc import (
     get_now_utc_datetime,
@@ -97,6 +97,7 @@ from camcops_server.cc_modules.cc_taskcollection import (
 from camcops_server.cc_modules.cc_taskfactory import task_factory_no_security_checks  # noqa
 
 if TYPE_CHECKING:
+    from io import BytesIO, TextIO
     from camcops_server.cc_modules.cc_request import CamcopsRequest
     from camcops_server.cc_modules.cc_task import Task
 
@@ -867,6 +868,7 @@ class ExportedTaskFileGroup(Base):
 
         try:
             log.debug("Writing to {!r}", filename)
+            f: Union[BytesIO, TextIO]
             if text:
                 with open(filename, mode="w", encoding=text_encoding) as f:
                     # mypy isn't clever enough to know that text and binary
