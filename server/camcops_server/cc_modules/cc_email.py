@@ -358,3 +358,5 @@ class Email(Base):
             if not self.sent:
                 self.sent = False
                 self.sending_failure_reason = str(e)
+
+        return self.sent
