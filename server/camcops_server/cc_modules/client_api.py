@@ -2808,7 +2808,9 @@ def main_client_api(req: "CamcopsRequest") -> Dict[str, str]:
 
     if not fn:
         fail_unsupported_operation(ts.operation)
-    result = fn(req)
+
+    # mypy doesn't know we'll never get here
+    result = fn(req)  # type: ignore
     if result is None:
         # generic success
         result = {TabletParam.RESULT: ts.operation}
