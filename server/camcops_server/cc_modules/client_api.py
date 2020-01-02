@@ -623,9 +623,11 @@ def get_int_var(req: "CamcopsRequest", var: str) -> int:
     """
     s = get_str_var(req, var, mandatory=True)
     try:
-        return int(s)
+        i = int(s)
     except (TypeError, ValueError):
         fail_user_error(f"Variable {var} is not a valid integer; was {s!r}")
+
+    return i
 
 
 def get_bool_int_var(req: "CamcopsRequest", var: str) -> bool:
