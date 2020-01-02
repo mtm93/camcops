@@ -277,6 +277,9 @@ class ExportedTask(Base):
         super().__init__(*args, **kwargs)
         self.recipient = recipient
         self.start_at_utc = get_now_utc_datetime()
+
+        self._task: Optional[Task]
+
         if task:
             assert (not basetable) and task_server_pk is None, (
                 "Task specified; mustn't specify basetable/task_server_pk"
@@ -287,7 +290,7 @@ class ExportedTask(Base):
         else:
             self.basetable = basetable
             self.task_server_pk = task_server_pk
-            self._task = None  # type: Optional[Task]
+            self._task = None
 
     @reconstructor
     def init_on_load(self) -> None:
@@ -821,7 +824,7 @@ class ExportedTaskFileGroup(Base):
 
     exported_task = relationship(ExportedTask)
 
-    def __init__(self, exported_task: ExportedTask = None) -> None:
+    def __init__(self, exported_task: ExportedTask) -> None:
         """
         Args:
             exported_task: :class:`ExportedTask` object
@@ -1033,7 +1036,7 @@ class ExportedTaskEmail(Base):
     exported_task = relationship(ExportedTask)
     email = relationship(Email)
 
-    def __init__(self, exported_task: ExportedTask = None) -> None:
+    def __init__(self, exported_task: ExportedTask) -> None:
         """
         Args:
             exported_task: :class:`ExportedTask` object
