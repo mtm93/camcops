@@ -2601,8 +2601,8 @@ def op_validate_patients(req: "CamcopsRequest") -> str:
             errors.append(f"{ptinfo} -> {reason}")
     if errors:
         fail_user_error(f"Invalid patients: {' // '.join(errors)}")
-    else:
-        return SUCCESS_MSG
+
+    return SUCCESS_MSG
 
 
 DB_JSON_DECODER = json.JSONDecoder()  # just a plain one
@@ -2669,7 +2669,7 @@ def process_table_for_onestep_upload(
         rows: List[Dict[str, Any]]) -> UploadTableChanges:
     """
     Performs all upload steps for a table.
-    
+
     Note that we arrive here in a specific and safe table order; search for
     :func:`camcops_server.cc_modules.cc_client_api_helpers.upload_commit_order_sorter`.
 
