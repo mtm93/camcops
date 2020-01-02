@@ -869,10 +869,14 @@ class ExportedTaskFileGroup(Base):
             log.debug("Writing to {!r}", filename)
             if text:
                 with open(filename, mode="w", encoding=text_encoding) as f:
-                    f.write(text)
+                    # mypy isn't clever enough to know that text and binary
+                    # will never be None when calling f.write()
+                    # Could refactor to have two different versions of
+                    # export_file()
+                    f.write(text)  # type: ignore
             else:
                 with open(filename, mode="wb") as f:
-                    f.write(binary)
+                    f.write(binary)  # type: ignore
         except Exception as e:
             self.abort(f"Failed to open or write file {filename!r}: {e}")
             return False
@@ -920,6 +924,8 @@ class ExportedTaskFileGroup(Base):
                 if os.path.isfile(os.path.abspath(fname)):
                     self.abort(f"File already exists: {fname!r}")
                     return
+
+        binary: Optional[bytes]
 
         # Export task
         if task_format == FileType.PDF:
