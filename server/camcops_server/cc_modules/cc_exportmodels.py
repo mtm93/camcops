@@ -742,7 +742,8 @@ class ExportedTaskHL7Message(Base):
         if success:
             self.succeed()
         else:
-            self.abort(failure_reason)
+            # mypy doesn't know that failure_reason won't be None
+            self.abort(failure_reason)  # type: ignore
 
     @staticmethod
     def ping_hl7_server(recipient: ExportRecipient) -> bool:
