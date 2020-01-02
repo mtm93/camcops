@@ -901,7 +901,7 @@ class Patient(GenericTabletRecordMixin, Base):
 # =============================================================================
 
 def is_candidate_patient_valid(ptinfo: BarePatientInfo,
-                               group: "Group",
+                               group: Optional["Group"],
                                finalizing: bool) -> Tuple[bool, str]:
     """
     Is the specified patient acceptable to upload into this group?

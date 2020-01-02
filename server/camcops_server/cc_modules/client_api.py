@@ -2596,7 +2596,10 @@ def op_validate_patients(req: "CamcopsRequest") -> str:
         if finalizing is None:
             fail_user_error(f"Missing {TabletParam.FINALIZING!r} JSON key")
 
-        pt_ok, reason = is_candidate_patient_valid(ptinfo, group, finalizing)
+        # MyPy doesn't know that finalizing won't be none
+        pt_ok, reason = is_candidate_patient_valid(ptinfo,
+                                                   group,
+                                                   finalizing)  # type: ignore
         if not pt_ok:
             errors.append(f"{ptinfo} -> {reason}")
     if errors:
