@@ -832,7 +832,7 @@ class ExportedTaskFileGroup(Base):
                     filename: str,
                     text: str = None,
                     binary: bytes = None,
-                    text_encoding: str = UTF8) -> False:
+                    text_encoding: str = UTF8) -> bool:
         """
         Exports the file.
 
