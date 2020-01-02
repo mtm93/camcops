@@ -595,9 +595,11 @@ class GenericTabletRecordMixin(object):
             value=self._get_xml_branches(req=req, options=options)
         )
 
-    def _get_xml_branches(self,
-                          req: "CamcopsRequest",
-                          options: TaskExportOptions) -> List[XmlElement]:
+    def _get_xml_branches(
+            self,
+            req: "CamcopsRequest",
+            options: Optional[TaskExportOptions]
+    ) -> List[XmlElement]:
         """
         Gets the values of SQLAlchemy columns as XmlElement objects.
         Optionally, find any SQLAlchemy relationships that are relationships
