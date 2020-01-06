@@ -84,7 +84,7 @@ class TrackerInfo(object):
     created.
     """
     def __init__(self,
-                 value: float,
+                 value: Optional[float],
                  plot_label: str = None,
                  axis_label: str = None,
                  axis_min: float = None,
