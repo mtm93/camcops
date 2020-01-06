@@ -46,8 +46,19 @@ from collections import OrderedDict
 import datetime
 import logging
 import statistics
-from typing import (Any, Dict, Iterable, Generator, List, Optional,
-                    Tuple, Type, TYPE_CHECKING, Union)
+from typing import (
+    Any,
+    Dict,
+    Iterable,
+    Generator,
+    List,
+    Optional,
+    overload,
+    Tuple,
+    Type,
+    TYPE_CHECKING,
+    Union,
+)
 
 from cardinal_pythonlib.classes import classproperty
 from cardinal_pythonlib.datetimefunc import (
@@ -2220,11 +2231,24 @@ class Task(GenericTabletRecordMixin, Base):
         """
         return req.task_extrastrings_exist(self.get_extrastring_taskname())
 
+    @overload
     def wxstring(self,
                  req: "CamcopsRequest",
                  name: str,
+                 defaultvalue: str) -> str:
+        pass
+
+    @overload  # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
+    def wxstring(self,
+                 req: "CamcopsRequest",
+                 name: str) -> str:
+        pass
+
+    def wxstring(self,  # noqa: F811  # as above
+                 req: "CamcopsRequest",
+                 name: str,
                  defaultvalue: str = None,
-                 provide_default_if_none: bool = True) -> str:
+                 provide_default_if_none: bool = True) -> Optional[str]:
         """
         Return a web-safe version of an extra string for this task.
 
@@ -2249,7 +2273,7 @@ class Task(GenericTabletRecordMixin, Base):
                 req: "CamcopsRequest",
                 name: str,
                 defaultvalue: str = None,
-                provide_default_if_none: bool = True) -> str:
+                provide_default_if_none: bool = True) -> Optional[str]:
         """
         Return a raw (not necessarily web-safe) version of an extra string for
         this task.
