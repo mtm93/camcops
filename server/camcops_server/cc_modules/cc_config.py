@@ -1390,6 +1390,9 @@ class CamcopsConfig(object):
             )
             log.debug("Created SQLAlchemy engine for URL {}",
                       get_safe_url_from_engine(self._sqla_engine))
+
+        assert self._sqla_engine is not None
+
         return self._sqla_engine
 
     @property

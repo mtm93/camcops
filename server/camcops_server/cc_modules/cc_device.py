@@ -159,6 +159,7 @@ class Device(Base):
         Get the device's friendly name (or failing that, its name).
         """
         if self.friendly_name is None:
+            assert self.name is not None
             return self.name
         return self.friendly_name
 
@@ -168,6 +169,7 @@ class Device(Base):
         friendly name).
         """
         if self.friendly_name is None:
+            assert self.name is not None
             return self.name
         return f"{self.name} (device# {self.id}, {self.friendly_name})"
 

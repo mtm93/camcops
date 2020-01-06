@@ -651,7 +651,7 @@ class Patient(GenericTabletRecordMixin, Base):
         """
         return default if not self.sex else ws.webify(self.sex)
 
-    def get_address(self) -> Optional[str]:
+    def get_address(self) -> str:
         """
         Returns address (NOT necessarily web-safe).
         """

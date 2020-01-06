@@ -35,7 +35,7 @@ import logging
 import os
 import sqlite3
 import tempfile
-from typing import List, Type, TYPE_CHECKING
+from typing import List, Optional, Type, TYPE_CHECKING
 import unittest
 
 from cardinal_pythonlib.dbfunc import get_fieldnames_from_cursor
@@ -125,6 +125,9 @@ class DemoRequestTestCase(ExtendedTestCase):
         self.echo = echo
         self.database_on_disk = database_on_disk
         self.tmpdir_obj = tempfile.TemporaryDirectory()
+
+        self.db_filename: Optional[str]
+
         if database_on_disk:
             tmpdir = self.tmpdir_obj.name
             self.db_filename = os.path.join(tmpdir, "camcops_self_test.sqlite")

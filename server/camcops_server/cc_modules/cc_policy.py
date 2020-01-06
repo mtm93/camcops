@@ -1051,6 +1051,9 @@ class TokenizedPolicy(object):
         if want_content:
             log.debug("_chunk_value(): ended wanting content; bad policy")
             return Q_ERROR
+
+        assert value is not None
+
         return value
 
     def _content_chunk_value(
