@@ -2269,7 +2269,20 @@ class Task(GenericTabletRecordMixin, Base):
             defaultvalue,
             provide_default_if_none=provide_default_if_none)
 
+    @overload
     def xstring(self,
+                req: "CamcopsRequest",
+                name: str,
+                defaultvalue: str) -> str:
+        pass
+
+    @overload  # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
+    def xstring(self,
+                req: "CamcopsRequest",
+                name: str) -> str:
+        pass
+
+    def xstring(self,  # noqa: F811  # as above
                 req: "CamcopsRequest",
                 name: str,
                 defaultvalue: str = None,
