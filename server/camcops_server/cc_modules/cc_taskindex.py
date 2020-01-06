@@ -593,6 +593,9 @@ class TaskIndexEntry(Base):
         """
         Return's the task's server PK.
         """
+
+        assert self.task_pk is not None
+
         return self.task_pk
 
     @property
@@ -600,6 +603,9 @@ class TaskIndexEntry(Base):
         """
         Returns the base table name of the task.
         """
+
+        assert self.task_table_name is not None
+
         return self.task_table_name
 
     @property

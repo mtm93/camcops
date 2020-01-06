@@ -300,6 +300,9 @@ class CamcopsSession(Base):
             # we might hot-swap the session.
             # See complete_request_add_cookies().
             ccsession = new_http_session
+
+        assert ccsession is not None
+
         return ccsession
 
     @classmethod
