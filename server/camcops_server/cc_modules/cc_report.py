@@ -330,7 +330,10 @@ class Report(object):
     def render_html(self, req: "CamcopsRequest") -> Response:
         rows_per_page = req.get_int_param(ViewParam.ROWS_PER_PAGE,
                                           DEFAULT_ROWS_PER_PAGE)
+        assert rows_per_page is not None
+
         page_num = req.get_int_param(ViewParam.PAGE, 1)
+        assert page_num is not None
 
         plain_report = self._get_plain_report(req)
 
