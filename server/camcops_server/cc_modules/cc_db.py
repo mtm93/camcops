@@ -75,10 +75,13 @@ from camcops_server.cc_modules.cc_xml import (
 
 if TYPE_CHECKING:
     from camcops_server.cc_modules.cc_blob import Blob  # noqa: F401
+    from camcops_server.cc_modules.cc_device import Device  # noqa: F401
+    from camcops_server.cc_modules.cc_group import Group  # noqa: F401
     from camcops_server.cc_modules.cc_patient import Patient  # noqa: F401
     from camcops_server.cc_modules.cc_request import CamcopsRequest  # noqa: E501,F401
     from camcops_server.cc_modules.cc_summaryelement import SummaryElement  # noqa: E501,F401
     from camcops_server.cc_modules.cc_task import Task  # noqa: F401
+    from camcops_server.cc_modules.cc_user import User  # noqa: F401
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 
