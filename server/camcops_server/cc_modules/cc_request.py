@@ -34,8 +34,18 @@ import datetime
 import gettext
 import logging
 import os
-from typing import (Any, Dict, Generator, List, Optional, Set,
-                    Tuple, TYPE_CHECKING, Union)
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    List,
+    Optional,
+    overload,
+    Set,
+    Tuple,
+    TYPE_CHECKING,
+    Union,
+)
 import urllib.parse
 
 from cardinal_pythonlib.datetimefunc import (
@@ -826,12 +836,37 @@ class CamcopsRequest(Request):
             )
         return default
 
+    @overload
+    def wxstring(self,
+                 taskname: str,
+                 stringname: str) -> str:
+        pass
+
+    @overload  # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
     def wxstring(self,
                  taskname: str,
                  stringname: str,
-                 default: str = None,
-                 provide_default_if_none: bool = True,
-                 language: str = None) -> Optional[str]:
+                 default: str) -> str:
+        pass
+
+    @overload   # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
+    def wxstring(
+            self,
+            taskname: str,
+            stringname: str,
+            default: str = None,
+            provide_default_if_none: bool = True,
+    ) -> Optional[str]:
+        pass
+
+    def wxstring(  # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
+            self,
+            taskname: str,
+            stringname: str,
+            default: str = None,
+            provide_default_if_none: bool = True,
+            language: str = None
+    ) -> Optional[str]:
         """
         Returns a web-safe version of an :func:`xstring` (q.v.).
         """

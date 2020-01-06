@@ -2244,6 +2244,14 @@ class Task(GenericTabletRecordMixin, Base):
                  name: str) -> str:
         pass
 
+    @overload  # noqa: F811  # https://github.com/PyCQA/pyflakes/issues/320
+    def wxstring(self,
+                 req: "CamcopsRequest",
+                 name: str,
+                 defaultvalue: str,
+                 provide_default_if_none: bool) -> Optional[str]:
+        pass
+
     def wxstring(self,  # noqa: F811  # as above
                  req: "CamcopsRequest",
                  name: str,
