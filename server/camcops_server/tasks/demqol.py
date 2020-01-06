@@ -360,7 +360,7 @@ class DemqolProxy(TaskHasPatientMixin, TaskHasRespondentMixin,
                 comment=f"Total score ({self.MIN_SCORE}-{self.MAX_SCORE})"),
         ]
 
-    def totalscore_extrapolated(self) -> Tuple[float, bool]:
+    def totalscore_extrapolated(self) -> Tuple[Optional[float], bool]:
         (total, extrapolated) = calc_total_score(
             obj=self,
             n_scored_questions=self.N_SCORED_QUESTIONS,
@@ -368,11 +368,9 @@ class DemqolProxy(TaskHasPatientMixin, TaskHasRespondentMixin,
             minimum_n_for_total_score=self.MINIMUM_N_FOR_TOTAL_SCORE
         )
 
-        assert total is not None
-
         return (total, extrapolated)
 
-    def total_score(self) -> float:
+    def total_score(self) -> Optional[float]:
         (total, extrapolated) = self.totalscore_extrapolated()
         return total
 
