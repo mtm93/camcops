@@ -26,7 +26,7 @@ camcops_server/tasks/cesdr.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import Any, cast, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.classes import classproperty
 from cardinal_pythonlib.stringfunc import strseq
@@ -155,7 +155,7 @@ class Cesdr(TaskHasPatientMixin, Task,
 
     def total_score(self) -> int:
         return (
-            self.sum_fields(self.SCORED_FIELDS) -
+            cast(int, self.sum_fields(self.SCORED_FIELDS)) -
             self.count_where(self.SCORED_FIELDS, [self.FREQ_DAILY_2_WEEKS])
         )
 
