@@ -30,7 +30,7 @@ camcops_server/cc_modules/cc_group.py
 
 import logging
 import re
-from typing import List, Optional, Set
+from typing import List, Optional, Set, TYPE_CHECKING
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from cardinal_pythonlib.reprfunc import simple_repr
@@ -49,6 +49,11 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
     IdPolicyColType,
 )
 from camcops_server.cc_modules.cc_sqlalchemy import Base
+
+if TYPE_CHECKING:
+    from camcops_server.cc_modules.cc_membership import (  # noqa F401
+        UserGroupMembership,
+    )
 
 log = BraceStyleAdapter(logging.getLogger(__name__))
 

@@ -44,7 +44,9 @@ from camcops_server.cc_modules.cc_sqla_coltypes import (
 from camcops_server.cc_modules.cc_sqlalchemy import Base
 
 if TYPE_CHECKING:
+    from camcops_server.cc_modules.cc_device import Device  # noqa: F401
     from camcops_server.cc_modules.cc_request import CamcopsRequest
+    from camcops_server.cc_modules.cc_user import User  # noqa: F401
 
 
 MAX_AUDIT_STRING_LENGTH = 65000
