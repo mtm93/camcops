@@ -182,12 +182,16 @@ class Demqol(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         ]
 
     def totalscore_extrapolated(self) -> Tuple[float, bool]:
-        return calc_total_score(
+        (total, extrapolated) = calc_total_score(
             obj=self,
             n_scored_questions=self.N_SCORED_QUESTIONS,
             reverse_score_qs=self.REVERSE_SCORE,
             minimum_n_for_total_score=self.MINIMUM_N_FOR_TOTAL_SCORE
         )
+
+        assert total is not None
+
+        return (total, extrapolated)
 
     def total_score(self) -> float:
         (total, extrapolated) = self.totalscore_extrapolated()
@@ -361,12 +365,16 @@ class DemqolProxy(TaskHasPatientMixin, TaskHasRespondentMixin,
         ]
 
     def totalscore_extrapolated(self) -> Tuple[float, bool]:
-        return calc_total_score(
+        (total, extrapolated) = calc_total_score(
             obj=self,
             n_scored_questions=self.N_SCORED_QUESTIONS,
             reverse_score_qs=self.REVERSE_SCORE,
             minimum_n_for_total_score=self.MINIMUM_N_FOR_TOTAL_SCORE
         )
+
+        assert total is not None
+
+        return (total, extrapolated)
 
     def total_score(self) -> float:
         (total, extrapolated) = self.totalscore_extrapolated()
