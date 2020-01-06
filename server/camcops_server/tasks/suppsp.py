@@ -46,7 +46,7 @@ from camcops_server.cc_modules.cc_text import SS
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Integer
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+from typing import cast, List, Type, Tuple, Dict, Any
 
 
 class SuppspMetaclass(DeclarativeMeta):
@@ -168,22 +168,22 @@ class Suppsp(TaskHasPatientMixin,
         return True
 
     def total_score(self) -> int:
-        return self.sum_fields(self.ALL_QUESTIONS)
+        return cast(int, self.sum_fields(self.ALL_QUESTIONS))
 
     def negative_urgency_score(self) -> int:
-        return self.sum_fields(self.NEGATIVE_URGENCY_QUESTIONS)
+        return cast(int, self.sum_fields(self.NEGATIVE_URGENCY_QUESTIONS))
 
     def lack_of_perseverance_score(self) -> int:
-        return self.sum_fields(self.LACK_OF_PERSEVERANCE_QUESTIONS)
+        return cast(int, self.sum_fields(self.LACK_OF_PERSEVERANCE_QUESTIONS))
 
     def lack_of_premeditation_score(self) -> int:
-        return self.sum_fields(self.LACK_OF_PREMEDITATION_QUESTIONS)
+        return cast(int, self.sum_fields(self.LACK_OF_PREMEDITATION_QUESTIONS))
 
     def sensation_seeking_score(self) -> int:
-        return self.sum_fields(self.SENSATION_SEEKING_QUESTIONS)
+        return cast(int, self.sum_fields(self.SENSATION_SEEKING_QUESTIONS))
 
     def positive_urgency_score(self) -> int:
-        return self.sum_fields(self.POSITIVE_URGENCY_QUESTIONS)
+        return cast(int, self.sum_fields(self.POSITIVE_URGENCY_QUESTIONS))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         normal_score_dict = {

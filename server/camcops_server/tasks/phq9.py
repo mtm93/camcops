@@ -26,7 +26,7 @@ camcops_server/tasks/phq9.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -192,7 +192,7 @@ class Phq9(TaskHasPatientMixin, Task,
         ]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.MAIN_QUESTIONS)
+        return cast(int, self.sum_fields(self.MAIN_QUESTIONS))
 
     def one_if_q_ge(self, qnum: int, threshold: int) -> int:
         value = getattr(self, "q" + str(qnum))

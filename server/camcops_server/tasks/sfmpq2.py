@@ -42,7 +42,7 @@ import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Float, Integer
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+from typing import cast, List, Type, Tuple, Dict, Any
 
 
 class Sfmpq2Metaclass(DeclarativeMeta):
@@ -153,19 +153,19 @@ class Sfmpq2(TaskHasPatientMixin,
         return True
 
     def total_pain(self) -> float:
-        return self.mean_fields(self.ALL_QUESTIONS)
+        return cast(float, self.mean_fields(self.ALL_QUESTIONS))
 
     def continuous_pain(self) -> float:
-        return self.mean_fields(self.CONTINUOUS_PAIN_QUESTIONS)
+        return cast(float, self.mean_fields(self.CONTINUOUS_PAIN_QUESTIONS))
 
     def intermittent_pain(self) -> float:
-        return self.mean_fields(self.INTERMITTENT_PAIN_QUESTIONS)
+        return cast(float, self.mean_fields(self.INTERMITTENT_PAIN_QUESTIONS))
 
     def neuropathic_pain(self) -> float:
-        return self.mean_fields(self.NEUROPATHIC_PAIN_QUESTIONS)
+        return cast(float, self.mean_fields(self.NEUROPATHIC_PAIN_QUESTIONS))
 
     def affective_pain(self) -> float:
-        return self.mean_fields(self.AFFECTIVE_PAIN_QUESTIONS)
+        return cast(float, self.mean_fields(self.AFFECTIVE_PAIN_QUESTIONS))
 
     def format_average(self, value) -> str:
         return "{} / {}".format(

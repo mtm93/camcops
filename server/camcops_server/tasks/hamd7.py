@@ -26,7 +26,7 @@ camcops_server/tasks/hamd7.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -141,7 +141,7 @@ class Hamd7(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(self.TASK_FIELDS)
+        return cast(int, self.sum_fields(self.TASK_FIELDS))
 
     def severity(self, req: CamcopsRequest) -> str:
         score = self.total_score()

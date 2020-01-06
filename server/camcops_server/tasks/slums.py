@@ -26,7 +26,7 @@ camcops_server/tasks/slums.py
 
 """
 
-from typing import List, Optional
+from typing import cast, List, Optional
 
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import Integer, UnicodeText
@@ -286,7 +286,7 @@ class Slums(TaskHasClinicianMixin, TaskHasPatientMixin, Task):
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_FIELDS)
+        return cast(int, self.sum_fields(self.SCORED_FIELDS))
 
     def category(self, req: CamcopsRequest) -> str:
         score = self.total_score()

@@ -26,7 +26,7 @@ camcops_server/tasks/ybocs.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -204,13 +204,13 @@ class Ybocs(TaskHasClinicianMixin, TaskHasPatientMixin, Task,
         ))]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_QUESTIONS)
+        return cast(int, self.sum_fields(self.SCORED_QUESTIONS))
 
     def obsession_score(self) -> int:
-        return self.sum_fields(self.OBSESSION_QUESTIONS)
+        return cast(int, self.sum_fields(self.OBSESSION_QUESTIONS))
 
     def compulsion_score(self) -> int:
-        return self.sum_fields(self.COMPULSION_QUESTIONS)
+        return cast(int, self.sum_fields(self.COMPULSION_QUESTIONS))
 
     def is_complete(self) -> bool:
         return (

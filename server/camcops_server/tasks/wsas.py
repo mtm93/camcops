@@ -26,7 +26,7 @@ camcops_server/tasks/wsas.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -133,8 +133,8 @@ class Wsas(TaskHasPatientMixin, Task,
         )]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.Q2_TO_END if self.retired_etc
-                               else self.QUESTION_FIELDS)
+        return cast(int, self.sum_fields(self.Q2_TO_END if self.retired_etc
+                                         else self.QUESTION_FIELDS))
 
     def max_score(self) -> int:
         return self.MAX_IF_RETIRED if self.retired_etc else self.MAX_IF_WORKING

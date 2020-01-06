@@ -26,7 +26,7 @@ camcops_server/tasks/panss.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -236,16 +236,16 @@ class Panss(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(self.TASK_FIELDS)
+        return cast(int, self.sum_fields(self.TASK_FIELDS))
 
     def score_p(self) -> int:
-        return self.sum_fields(self.P_FIELDS)
+        return cast(int, self.sum_fields(self.P_FIELDS))
 
     def score_n(self) -> int:
-        return self.sum_fields(self.N_FIELDS)
+        return cast(int, self.sum_fields(self.N_FIELDS))
 
     def score_g(self) -> int:
-        return self.sum_fields(self.G_FIELDS)
+        return cast(int, self.sum_fields(self.G_FIELDS))
 
     def composite(self) -> int:
         return self.score_p() - self.score_n()

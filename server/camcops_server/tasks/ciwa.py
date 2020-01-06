@@ -26,7 +26,7 @@ camcops_server/tasks/ciwa.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -176,7 +176,7 @@ class Ciwa(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
                 self.field_contents_valid())
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_QUESTIONS)
+        return cast(int, self.sum_fields(self.SCORED_QUESTIONS))
 
     def severity(self, req: CamcopsRequest) -> str:
         score = self.total_score()

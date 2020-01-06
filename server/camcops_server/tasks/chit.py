@@ -48,7 +48,7 @@ from camcops_server.cc_modules.cc_text import SS
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Integer
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+from typing import cast, List, Type, Tuple, Dict, Any
 
 
 class ChitMetaclass(DeclarativeMeta):
@@ -120,7 +120,7 @@ class Chit(TaskHasPatientMixin,
         return True
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_QUESTIONS)
+        return cast(int, self.sum_fields(self.SCORED_QUESTIONS))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         score_dict = {

@@ -27,7 +27,7 @@ camcops_server/tasks/core10.py
 """
 
 import logging
-from typing import Dict, List, Optional, Type
+from typing import cast, Dict, List, Optional, Type
 
 from cardinal_pythonlib.classes import classproperty
 from cardinal_pythonlib.stringfunc import strseq
@@ -189,7 +189,7 @@ class Core10(TaskHasPatientMixin, Task):
         ]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.QUESTION_FIELDNAMES)
+        return cast(int, self.sum_fields(self.QUESTION_FIELDNAMES))
 
     def n_questions_complete(self) -> int:
         return self.n_fields_not_none(self.QUESTION_FIELDNAMES)
@@ -461,8 +461,8 @@ class Core10ReportDateRangeTests(Core10ReportTestCase):
 
         SELECT *
             FROM core10
-            WHERE core10._current = 1 
-            AND STRFTIME('%Y-%m-%d %H:%M:%f', core10.when_created) >= '2018-06-01 00:00:00.000000' 
+            WHERE core10._current = 1
+            AND STRFTIME('%Y-%m-%d %H:%M:%f', core10.when_created) >= '2018-06-01 00:00:00.000000'
             AND STRFTIME('%Y-%m-%d %H:%M:%f', core10.when_created) < '2018-09-01 00:00:00.000000';
 
         -- That fails. Either our date/time comparison code is wrong for SQLite, or

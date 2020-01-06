@@ -26,7 +26,7 @@ camcops_server/tasks/aims.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -130,7 +130,7 @@ class Aims(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
                 self.field_contents_valid())
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_FIELDS)
+        return cast(int, self.sum_fields(self.SCORED_FIELDS))
 
     # noinspection PyUnresolvedReferences
     def get_task_html(self, req: CamcopsRequest) -> str:

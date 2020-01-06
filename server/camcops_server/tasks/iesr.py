@@ -26,7 +26,7 @@ camcops_server/tasks/iesr.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -202,16 +202,16 @@ class Iesr(TaskHasPatientMixin, Task,
         )]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.QUESTION_FIELDS)
+        return cast(int, self.sum_fields(self.QUESTION_FIELDS))
 
     def avoidance_score(self) -> int:
-        return self.sum_fields(self.AVOIDANCE_FIELDS)
+        return cast(int, self.sum_fields(self.AVOIDANCE_FIELDS))
 
     def intrusion_score(self) -> int:
-        return self.sum_fields(self.INTRUSION_FIELDS)
+        return cast(int, self.sum_fields(self.INTRUSION_FIELDS))
 
     def hyperarousal_score(self) -> int:
-        return self.sum_fields(self.HYPERAROUSAL_FIELDS)
+        return cast(int, self.sum_fields(self.HYPERAROUSAL_FIELDS))
 
     def is_complete(self) -> bool:
         return bool(

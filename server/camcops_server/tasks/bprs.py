@@ -26,7 +26,7 @@ camcops_server/tasks/bprs.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -124,7 +124,7 @@ class Bprs(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(Bprs.SCORED_FIELDS, ignorevalue=0)
+        return cast(int, self.sum_fields(Bprs.SCORED_FIELDS, ignorevalue=0))
         # "0" means "not rated"
 
     # noinspection PyUnresolvedReferences

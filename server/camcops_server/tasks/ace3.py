@@ -26,7 +26,7 @@ camcops_server/tasks/ace3.py
 
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Type, TYPE_CHECKING
+from typing import cast, Any, Dict, List, Optional, Tuple, Type, TYPE_CHECKING
 
 from cardinal_pythonlib.stringfunc import strseq
 import cardinal_pythonlib.rnc_web as ws
@@ -417,7 +417,7 @@ class Ace3(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         ]
 
     def attn_score(self) -> int:
-        return self.sum_fields(self.ATTN_SCORE_FIELDS)
+        return cast(int, self.sum_fields(self.ATTN_SCORE_FIELDS))
 
     @staticmethod
     def get_recog_score(recalled: Optional[int],
@@ -468,7 +468,7 @@ class Ace3(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
     def get_follow_command_score(self) -> int:
         if self.lang_follow_command_practice != 1:
             return 0
-        return self.sum_fields(self.LANG_FOLLOW_CMD_FIELDS)
+        return cast(int, self.sum_fields(self.LANG_FOLLOW_CMD_FIELDS))
 
     def get_repeat_word_score(self) -> int:
         n = self.sum_fields(self.LANG_REPEAT_WORD_FIELDS)

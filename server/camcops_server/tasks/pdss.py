@@ -26,7 +26,7 @@ camcops_server/tasks/pdss.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.stringfunc import strseq
@@ -132,10 +132,10 @@ class Pdss(TaskHasPatientMixin, Task,
         )]
 
     def total_score(self) -> int:
-        return self.sum_fields(self.QUESTION_FIELDS)
+        return cast(int, self.sum_fields(self.QUESTION_FIELDS))
 
     def composite_score(self) -> int:
-        return self.mean_fields(self.QUESTION_FIELDS)
+        return cast(int, self.mean_fields(self.QUESTION_FIELDS))
 
     def is_complete(self) -> bool:
         return (

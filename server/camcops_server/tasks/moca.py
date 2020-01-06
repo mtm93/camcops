@@ -26,7 +26,7 @@ camcops_server/tasks/moca.py
 
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Type
+from typing import cast, Any, Dict, List, Optional, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -257,28 +257,28 @@ class Moca(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         if score < self.MAX_SCORE:
             score += self.sum_fields(["education12y_or_less"])
             # extra point for this
-        return score
+        return cast(int, score)
 
     def score_vsp(self) -> int:
-        return self.sum_fields(self.VSP_FIELDS)
+        return cast(int, self.sum_fields(self.VSP_FIELDS))
 
     def score_naming(self) -> int:
-        return self.sum_fields(self.NAMING_FIELDS)
+        return cast(int, self.sum_fields(self.NAMING_FIELDS))
 
     def score_attention(self) -> int:
-        return self.sum_fields(self.ATTN_FIELDS)
+        return cast(int, self.sum_fields(self.ATTN_FIELDS))
 
     def score_language(self) -> int:
-        return self.sum_fields(self.LANG_FIELDS)
+        return cast(int, self.sum_fields(self.LANG_FIELDS))
 
     def score_abstraction(self) -> int:
-        return self.sum_fields(self.ABSTRACTION_FIELDS)
+        return cast(int, self.sum_fields(self.ABSTRACTION_FIELDS))
 
     def score_memory(self) -> int:
-        return self.sum_fields(self.MEM_FIELDS)
+        return cast(int, self.sum_fields(self.MEM_FIELDS))
 
     def score_orientation(self) -> int:
-        return self.sum_fields(self.ORIENTATION_FIELDS)
+        return cast(int, self.sum_fields(self.ORIENTATION_FIELDS))
 
     def category(self, req: CamcopsRequest) -> str:
         totalscore = self.total_score()

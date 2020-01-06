@@ -26,7 +26,7 @@ camcops_server/tasks/cgi_task.py
 
 """
 
-from typing import Dict, List
+from typing import cast, Dict, List
 
 from sqlalchemy.sql.sqltypes import Integer
 
@@ -132,7 +132,7 @@ class Cgi(TaskHasPatientMixin, TaskHasClinicianMixin, Task):
         return True
 
     def total_score(self) -> int:
-        return self.sum_fields(["q1", "q2", "q3"])
+        return cast(int, self.sum_fields(["q1", "q2", "q3"]))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         q1_dict = {

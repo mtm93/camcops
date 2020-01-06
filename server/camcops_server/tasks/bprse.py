@@ -26,7 +26,7 @@ camcops_server/tasks/bprse.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -124,7 +124,7 @@ class Bprse(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(self.TASK_FIELDS)
+        return cast(int, self.sum_fields(self.TASK_FIELDS))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         def bprs_string(x: str) -> str:

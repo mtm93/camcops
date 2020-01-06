@@ -26,7 +26,7 @@ camcops_server/tasks/cope.py
 
 """
 
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 from sqlalchemy.sql.schema import Column
@@ -219,46 +219,46 @@ class CopeBrief(TaskHasPatientMixin, Task,
         )
 
     def self_distraction(self) -> int:
-        return self.sum_fields(["q1", "q19"])
+        return cast(int, self.sum_fields(["q1", "q19"]))
 
     def active_coping(self) -> int:
-        return self.sum_fields(["q2", "q7"])
+        return cast(int, self.sum_fields(["q2", "q7"]))
 
     def denial(self) -> int:
-        return self.sum_fields(["q3", "q8"])
+        return cast(int, self.sum_fields(["q3", "q8"]))
 
     def substance_use(self) -> int:
-        return self.sum_fields(["q4", "q11"])
+        return cast(int, self.sum_fields(["q4", "q11"]))
 
     def emotional_support(self) -> int:
-        return self.sum_fields(["q5", "q15"])
+        return cast(int, self.sum_fields(["q5", "q15"]))
 
     def instrumental_support(self) -> int:
-        return self.sum_fields(["q10", "q23"])
+        return cast(int, self.sum_fields(["q10", "q23"]))
 
     def behavioural_disengagement(self) -> int:
-        return self.sum_fields(["q6", "q16"])
+        return cast(int, self.sum_fields(["q6", "q16"]))
 
     def venting(self) -> int:
-        return self.sum_fields(["q9", "q21"])
+        return cast(int, self.sum_fields(["q9", "q21"]))
 
     def positive_reframing(self) -> int:
-        return self.sum_fields(["q12", "q17"])
+        return cast(int, self.sum_fields(["q12", "q17"]))
 
     def planning(self) -> int:
-        return self.sum_fields(["q14", "q25"])
+        return cast(int, self.sum_fields(["q14", "q25"]))
 
     def humour(self) -> int:
-        return self.sum_fields(["q18", "q28"])
+        return cast(int, self.sum_fields(["q18", "q28"]))
 
     def acceptance(self) -> int:
-        return self.sum_fields(["q20", "q24"])
+        return cast(int, self.sum_fields(["q20", "q24"]))
 
     def religion(self) -> int:
-        return self.sum_fields(["q22", "q27"])
+        return cast(int, self.sum_fields(["q22", "q27"]))
 
     def self_blame(self) -> int:
-        return self.sum_fields(["q13", "q26"])
+        return cast(int, self.sum_fields(["q13", "q26"]))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         answer_dict = {None: None}

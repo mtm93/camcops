@@ -28,7 +28,7 @@ camcops_server/tasks/hads.py
 
 from abc import ABC, ABCMeta
 import logging
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.logs import BraceStyleAdapter
 from cardinal_pythonlib.stringfunc import strseq
@@ -274,7 +274,7 @@ class HadsBase(TaskHasPatientMixin, Task, ABC,
 
     def score(self, questions: List[int]) -> int:
         fields = self.fieldnames_from_list("q", questions)
-        return self.sum_fields(fields)
+        return cast(int, self.sum_fields(fields))
 
     def anxiety_score(self) -> int:
         return self.score(self.ANXIETY_QUESTIONS)

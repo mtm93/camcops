@@ -42,7 +42,7 @@ import cardinal_pythonlib.rnc_web as ws
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy import Float, Integer
 from sqlalchemy.ext.declarative import DeclarativeMeta
-from typing import List, Type, Tuple, Dict, Any
+from typing import cast, List, Type, Tuple, Dict, Any
 
 
 class EsspriMetaclass(DeclarativeMeta):
@@ -105,7 +105,7 @@ class Esspri(TaskHasPatientMixin,
         return True
 
     def overall_score(self) -> float:
-        return self.mean_fields(self.ALL_QUESTIONS)
+        return cast(float, self.mean_fields(self.ALL_QUESTIONS))
 
     def get_task_html(self, req: CamcopsRequest) -> str:
         rows = ""

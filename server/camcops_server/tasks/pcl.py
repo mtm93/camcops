@@ -27,7 +27,7 @@ camcops_server/tasks/pcl.py
 """
 
 from abc import ABCMeta, ABC
-from typing import Any, Dict, List, Tuple, Type
+from typing import cast, Any, Dict, List, Tuple, Type
 
 from cardinal_pythonlib.stringfunc import strseq
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -116,7 +116,7 @@ class PclCommon(TaskHasPatientMixin, Task, ABC,
         )
 
     def total_score(self) -> int:
-        return self.sum_fields(self.SCORED_FIELDS)
+        return cast(int, self.sum_fields(self.SCORED_FIELDS))
 
     def get_trackers(self, req: CamcopsRequest) -> List[TrackerInfo]:
         return [TrackerInfo(
