@@ -220,14 +220,20 @@ class PatientIdNum(GenericTabletRecordMixin, Base):
         Returns the full description for this ID number.
         """
         which_idnum = self.which_idnum  # type: int
-        return req.get_id_desc(which_idnum, default="?")
+        id_desc = req.get_id_desc(which_idnum, default="?")
+        assert id_desc is not None
+
+        return id_desc
 
     def short_description(self, req: "CamcopsRequest") -> str:
         """
         Returns the short description for this ID number.
         """
         which_idnum = self.which_idnum  # type: int
-        return req.get_id_shortdesc(which_idnum, default="?")
+        shortdesc = req.get_id_shortdesc(which_idnum, default="?")
+        assert shortdesc is not None
+
+        return shortdesc
 
     # -------------------------------------------------------------------------
     # Other representations
@@ -270,7 +276,11 @@ class PatientIdNum(GenericTabletRecordMixin, Base):
         if not patient:
             raise ValueError(
                 "Corrupted database? PatientIdNum can't fetch its Patient")
-        return patient.get_pk()
+
+        pk = patient.get_pk()
+        assert pk is not None
+
+        return pk
 
 
 # =============================================================================
