@@ -455,7 +455,7 @@ class Ace3(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
 
     def mem_score(self) -> int:
         return (
-            self.sum_fields(self.MEM_NON_RECOG_SCORE_FIELDS) +
+            cast(int, self.sum_fields(self.MEM_NON_RECOG_SCORE_FIELDS)) +
             self.get_mem_recognition_score()
         )
 
@@ -475,13 +475,13 @@ class Ace3(TaskHasPatientMixin, TaskHasClinicianMixin, Task,
         return 2 if n >= 4 else (1 if n == 3 else 0)
 
     def lang_score(self) -> int:
-        return (self.sum_fields(self.LANG_SIMPLE_SCORE_FIELDS) +
+        return (cast(int, self.sum_fields(self.LANG_SIMPLE_SCORE_FIELDS)) +
                 self.get_follow_command_score() +
                 self.get_repeat_word_score() +
                 score_zero_for_absent(self.lang_read_words_aloud))
 
     def vsp_score(self) -> int:
-        return (self.sum_fields(self.VSP_SIMPLE_SCORE_FIELDS) +
+        return (cast(int, self.sum_fields(self.VSP_SIMPLE_SCORE_FIELDS)) +
                 score_zero_for_absent(self.vsp_copy_infinity) +
                 score_zero_for_absent(self.vsp_copy_cube) +
                 score_zero_for_absent(self.vsp_draw_clock))
