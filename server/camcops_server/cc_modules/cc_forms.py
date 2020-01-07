@@ -291,7 +291,8 @@ class RequestAwareMixin(object):
     """
     def __init__(self, *args, **kwargs) -> None:
         # Stop multiple inheritance complaints
-        super().__init__(*args, **kwargs)
+        # https://github.com/python/mypy/issues/5887
+        super().__init__(*args, **kwargs)  # type: ignore
 
     # noinspection PyUnresolvedReferences
     @property
@@ -534,7 +535,8 @@ class HorizontalFormMixin(object):
         schema.widget = HorizontalFormWidget()
 
         # OK, proceed.
-        super().__init__(schema, *args, **kwargs)
+        # https://github.com/python/mypy/issues/5887
+        super().__init__(schema, *args, **kwargs)  # type: ignore
 
 
 def add_css_class(kwargs: Dict[str, Any],
@@ -566,7 +568,8 @@ class FormInlineCssMixin(object):
     def __init__(self, *args, **kwargs) -> None:
         kwargs = kwargs or {}
         add_css_class(kwargs, BootstrapCssClasses.FORM_INLINE)
-        super().__init__(*args, **kwargs)
+        # https://github.com/python/mypy/issues/5887
+        super().__init__(*args, **kwargs)  # type: ignore
 
 
 def make_widget_horizontal(widget: Widget) -> None:

@@ -282,7 +282,8 @@ class ExportedTask(Base):
         (However, we must also support a no-parameter constructor, not least
         for our :func:`merge_db` function.)
         """  # noqa
-        super().__init__(*args, **kwargs)
+        # https://github.com/python/mypy/issues/5887
+        super().__init__(*args, **kwargs)  # type: ignore
         self.recipient = recipient
         self.start_at_utc = get_now_utc_datetime()
 
@@ -539,7 +540,8 @@ class ExportedTaskHL7Message(Base):
         Must support parameter-free construction, not least for
         :func:`merge_db`.
         """
-        super().__init__(*args, **kwargs)
+        # https://github.com/python/mypy/issues/5887
+        super().__init__(*args, **kwargs)  # type: ignore
         self.exported_task = exported_task
 
         self._hl7_msg = None  # type: Optional[hl7.Message]
