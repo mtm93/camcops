@@ -5,7 +5,7 @@ camcops_server/cc_modules/cc_patient.py
 
 ===============================================================================
 
-    Copyright (C) 2012-2019 Rudolf Cardinal (rudolf@pobox.com).
+    Copyright (C) 2012-2020 Rudolf Cardinal (rudolf@pobox.com).
 
     This file is part of CamCOPS.
 
@@ -737,7 +737,7 @@ class Patient(GenericTabletRecordMixin, Base):
             dob=self.dob,
             address=self.address,
             gp=self.gp,
-            other=self.other,
+            otherdetails=self.other,
             idnum_definitions=self.get_idnum_references()
         )
 

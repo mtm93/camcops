@@ -5,7 +5,7 @@ camcops_server/cc_modules/cc_pythonversion.py
 
 ===============================================================================
 
-    Copyright (C) 2012-2019 Rudolf Cardinal (rudolf@pobox.com).
+    Copyright (C) 2012-2020 Rudolf Cardinal (rudolf@pobox.com).
 
     This file is part of CamCOPS.
 
@@ -53,7 +53,7 @@ def assert_minimum_python_version():
     Note that this module/function should use only Python 2 syntax!
 
     """
-    if sys.version_info < (3, 6):
+    if sys.version_info < MINIMUM_PYTHON_VERSION:
         required = ".".join(str(x) for x in MINIMUM_PYTHON_VERSION)
         actual = ".".join(str(x) for x in sys.version_info)
         raise AssertionError("Need Python %s or higher; this is %s" %

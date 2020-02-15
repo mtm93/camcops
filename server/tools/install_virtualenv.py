@@ -5,7 +5,7 @@ tools/install_virtualenv.py
 
 ===============================================================================
 
-    Copyright (C) 2012-2019 Rudolf Cardinal (rudolf@pobox.com).
+    Copyright (C) 2012-2020 Rudolf Cardinal (rudolf@pobox.com).
 
     This file is part of CamCOPS.
 
@@ -45,8 +45,7 @@ try:
 except ImportError:
     distro = None
 
-if sys.version_info < (3, 6):
-    raise AssertionError("Need Python 3.6 or higher")
+assert sys.version_info >= (3, 6), "Need Python 3.6 or higher"
 LINUX = platform.system() == 'Linux'
 if distro:
     LINUX_DIST = distro.linux_distribution()[0].lower()
